@@ -8,44 +8,43 @@ document.addEventListener('touchmove', function (e) {
 },true);
 
 var app = {
-    create: function (){
-        app.mySwiper = new Swiper ('.swiper-container', {
-            direction: 'vertical',
+    common: function (){
+        //  车型选择 select
+        $('.car-type-select .item').click(function (e) {
+            var carType = $(this).attr('data-type');
+            var carTypeSelect = $('.car-type-select');
 
-            parallax : true,
+            if (carTypeSelect.hasClass(carType)) return;
 
-            noSwiping: false,
+            //  更换车系剪影
+            $('.car-type-tab').removeClass('haohua suv jiaoche'.replace(carType, '')).addClass(carType);
+            carTypeSelect.attr('data-type', carType);
 
-            // init
-            onInit: function () {
-            },
-
-            onTransitionStart: function (swiper) {
-            },
-
-            onTransitionEnd: function (swiper) {
-
-            }
+            //  重置车系
+            $('.car-type-tab .item').removeClass('active');
+            $('.car-type-tab .item:first').addClass('active');
         });
 
-        //  first time play BGM
-        var initSound = function () {
-            //  delay play
-            $('#audio')[0].play();
-
-            document.removeEventListener('touchstart', initSound, false);
-        };
-        document.addEventListener('touchstart', initSound, false);
+        //  车系选择 tab
+        $('.car-type-tab .item').click(function (e) {
+            e.stopPropagation();
+            $(this).addClass('active').siblings().removeClass('active');
+        });
     },
 
-    start: function (){
-        this.create();
+    init: function (){
+        this.common();
+
+        $('.icon-close').click(function () {
+           $('.scene01').fadeOut();
+           $('.scene02').fadeIn();
+        });
     }
 };
 
 $(function (){
     // init app
-    app.start();
+    app.init();
     console.log('app started success...');
 });
 

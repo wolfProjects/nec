@@ -10,35 +10,123 @@
     <title></title>
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="assets/stylesheets/base.css"/>
-    <link rel="stylesheet" href="assets/stylesheets/swiper.min.css"/>
     <link rel="stylesheet" href="assets/stylesheets/main.css"/>
     <!-- endinject -->
 </head>
 <body>
-<!-- the class "content" is used for flexible plugin -->
-<div class="swiper-container content">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide scene">
-            <aside>
-                <h2>aside</h2>
-            </aside>
-            <main>
-                <h3>main</h3>
-            </main>
-        </div>
-        <div class="swiper-slide scene">Slide 2</div>
-        <div class="swiper-slide scene">Slide 3</div>
-    </div>
-</div>
 
-<audio id="audio" src=""></audio>
+<!-- scene01 -->
+<section class="scene scene01">
+    <i class="pa icon-close"></i>
+    <div class="scene-bd">
+        <div class="pa time">15:15 PM</div>
+        <div class="pa logo">
+            <img class="img01" src="assets/images/s01-logo01.png" alt=""/><br/>
+            <img class="img02" src="assets/images/s01-logo02.png" alt=""/>
+        </div>
+        <div class="pa description">
+            <strong>SmartDealer</strong>（智能化解决方案）理念将贯穿于全业务流程（售前、售中、售后），利用前端（线上：微信平台、app工具 及线下：交互式一体机、智能洽谈桌、智能手持平板）结合后台（DMB、CRM、云计算/服务、分析引擎），为不同客户（厂商、经销商）打造定制化服务，提供：更实用的营销工具、更精准的经营决策、更顺畅的业务流程、更丰富的盈利来源，实现厂商与经销商共赢。
+        </div>
+        <div class="pa entry-list">
+            <a class="item item01"></a>
+            <a class="item item02"></a>
+            <a class="item item03"></a>
+            <a class="item item04"></a>
+            <a class="item item05"></a>
+        </div>
+    </div>
+</section>
+<!-- end scene01 -->
+
+<a class="pa logo-common"></a>
+
+<!-- scene02 -->
+<section class="scene scene02">
+    <div class="topic">
+        <div class="pa hd">
+            <img src="assets/images/s02-car-browsing.png" alt="" width="124" height="49"/>
+        </div>
+    </div>
+
+    <div class="pa zhuangshi">
+        <div class="pa circle"></div>
+        <div class="pa line"></div>
+    </div>
+
+    <div class="pa title">
+        <div class="pa item01"><img src="assets/images/s02-title.png" alt=""/></div>
+        <div class="pa item02"><img src="assets/images/s02-title-suv.png" alt=""/></div>
+    </div>
+
+    <div class="pa person">
+        <div class="pa avatar">
+            <img src="assets/images/avatar-man-2545.jpg" width="145" height="137" alt=""/>
+        </div>
+        <p class="pa age">年龄：25~45岁</p>
+        <p class="pa hd">臻享生活·品鉴艺术</p>
+        <p class="pa bd">追求舒适和完美的驾乘体验,充满浓重的人文气息，彰显优雅豪华和勇于进取的追求。</p>
+    </div>
+
+    <div class="pa car">
+        <div class="car-bd"></div>
+    </div>
+
+    <!-- 车型选择 tab -->
+    <div class="pa car-type-tab">
+        <div class="item item01 active" data-type="a">
+            <i class="badge">A</i>
+            <i class="triangle"></i>
+            <i class="icon"></i>
+        </div>
+        <div class="item item02" data-type="b">
+            <i class="badge">B</i>
+            <i class="triangle"></i>
+            <i class="icon"></i>
+        </div>
+        <div class="item item03" data-type="c">
+            <i class="badge">C</i>
+            <i class="triangle"></i>
+            <i class="icon"></i>
+        </div>
+    </div>
+    <!-- end 车型选择 tab -->
+
+    <!-- 车型选择 select -->
+    <div class="pa select car-type-select" data-type="jiaoche">
+        <div class="select-hd">
+            <span>轿车</span>
+            <i class="icon"></i>
+        </div>
+        <div class="select-bd">
+            <div class="bd">
+                <div class="item" data-type="jiaoche">轿车</div>
+                <div class="item" data-type="suv">SUV</div>
+                <div class="item" data-type="haohua">豪华车</div>
+            </div>
+            <div class="bottom"></div>
+        </div>
+    </div>
+    <!-- end 车型选择 select -->
+
+    <!-- 导航 -->
+    <section class="pa nav">
+        <a class="item item01" href=""></a>
+        <a class="item item02" href=""></a>
+        <a class="item item03" href=""></a>
+        <a class="item item04" href=""></a>
+        <a class="item item05" href=""></a>
+        <a class="item item06" href=""></a>
+    </section>
+    <!-- end 导航 -->
+</section>
+<!-- end scene02 -->
+
+
+
 <!-- inject:js -->
 <!-- page -->
-<script src="assets/scripts/base.js"></script>
-<script src="assets/scripts/flexible.js"></script>
 <script src="assets/scripts/jquery-2.1.3.min.js"></script>
-<script src="assets/scripts/swiper.js"></script>
+<script src="assets/scripts/components.js"></script>
 <script src="assets/scripts/main.js"></script>
 <!-- endinject -->
 </body>

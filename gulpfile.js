@@ -41,16 +41,12 @@ var filePath = {
 //  put css files in order, used for concat process
 var concatOrder = {
     css: [
-        filePath.cssCompiled + 'base.css',
-        filePath.cssCompiled + 'swiper.min.css',
         filePath.cssCompiled + 'main.css'
     ],
 
     js: [
-        filePath.js + 'base.js',
-        filePath.js + 'flexible.js',
         filePath.js + 'jquery-2.1.3.min.js',
-        filePath.js + 'swiper.js',
+        filePath.js + 'components.js',
         filePath.js + 'main.js'
     ]
 };

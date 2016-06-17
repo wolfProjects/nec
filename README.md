@@ -27,9 +27,6 @@ Preset responsive lib, and swiper.js for mobile projects
 assets/
 |-- images/			
 |-- scripts/
-	        main.js         # main js
-	        flexible.js		# responsive lib using rem, https://github.com/amfe/lib-flexible
-	        swiper.js		# popular slider plugin, good supported for mobile and PC pages.  http://www.idangero.us/swiper
 	        ----------------------------------------------
             after compiled (auto create addition below):
             app.js          # concated
@@ -37,7 +34,6 @@ assets/
 			maps/
 |-- stylesheets/
             base.scss       # reset styles, useful styles
-            swiper.min.css  # swiper.js styles
             main.scss       # main styles
             ----------------------------------------------
             after compiled (auto create addition below):
