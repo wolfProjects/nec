@@ -43,7 +43,7 @@ input {
 }
 
 .pa {
-  position: absolute;
+  position: absolute!important;
 }
 
 .full-size {
@@ -58,16 +58,11 @@ input {
 
 //  color
 $orange : #d86f44;
+$darkblue: #516a96;
 
-
-//  scene
-.scene {
-  @extend .full-size;
-  position: fixed;
-
-  background-size: cover;
-}
-
+/*======================================================================
+      Common Parts
+  ======================================================================*/
 //  logo
 .logo-common {
   left: 57px;
@@ -93,6 +88,7 @@ $orange : #d86f44;
     margin: 0 52/2*1px;
     background: no-repeat center center;
     background-size: cover;
+    cursor: pointer;
   }
 
   .item01 { background-image: url("../images/nav01.png"); }
@@ -105,8 +101,9 @@ $orange : #d86f44;
 
 //  车型选择 tab
 .car-type-tab {
+  display: none;
   top: 264px;
-  right: 56px;
+  left: 1720px;
   padding-top: 15px;
 
   .item {
@@ -205,11 +202,63 @@ $orange : #d86f44;
   }
 }
 
+//  topic
+.topic {
+  .hd {
+    right: 57px;
+    top: 41px;
+  }
+}
 
-//  车型选择 select
-.car-type-select {
-  top: 676px;
-  right: 60px;
+//  左侧标题装饰
+.zhuangshi {
+  top: 115px;
+  left: 40px;
+
+  .circle {
+    top: 25px;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    border: 1px solid #fff;
+  }
+
+  .line {
+    top: 0;
+    left: 14px;
+    width: 2px;
+    height: 92px;
+    background: #404057;
+  }
+}
+
+//  dot
+.dot {
+  right: -34px;
+  top: 16px;
+  width: 16px;
+  height: 16px;
+  padding: 6px 0 0 6px;
+  background: rgba(216, 111, 68, .38);
+  border-radius: 100%;
+
+  .dot-bd {
+    width: 9px;
+    height: 9px;
+    background: $orange;
+    border-radius: 100%;
+  }
+}
+
+/*======================================================================
+      Scenes
+  ======================================================================*/
+//  scene
+.scene {
+  @extend .full-size;
+  position: fixed;
+
+  background-size: cover;
 }
 
 //  scene01
@@ -220,7 +269,7 @@ $orange : #d86f44;
 
   }
 
-  .icon-close {
+  .btn-close {
     width: 60px;
     height: 60px;
     top: 23px;
@@ -253,10 +302,11 @@ $orange : #d86f44;
 
   .description {
     top: 438px;
-    margin-left: 318px;
     width: 1280px;
-    font-size: 24px;
     line-height: 36px;
+    margin-left: 318px;
+    font-size: 24px;
+    text-indent: 2em;
 
     strong {
       font-weight: normal;
@@ -289,36 +339,7 @@ $orange : #d86f44;
 
 //  scene02
 .scene02 {
-  display: none;
   background-image: url("../images/s02-bg.jpg") ;
-
-  .topic {
-    .hd {
-      right: 57px;
-      top: 41px;
-    }
-  }
-
-  .zhuangshi {
-    top: 115px;
-    left: 43px;
-
-    .circle {
-      top: 25px;
-      width: 8px;
-      height: 8px;
-      border-radius: 100%;
-      border: 1px solid #fff;
-    }
-
-    .line {
-      top: 0;
-      left: 12px;
-      width: 2px;
-      height: 92px;
-      background: #404057;
-    }
-  }
 
   .title {
     top: 170px;
@@ -358,7 +379,7 @@ $orange : #d86f44;
       top: 192px;
       line-height: 31px;
       font-size: 22px;
-      color: #516a96;
+      color: $darkblue;
     }
 
     .hd {
@@ -375,7 +396,7 @@ $orange : #d86f44;
       width: 358px;
       line-height: 42px;
       font-size: 20px;
-      color: #516a96;
+      color: $darkblue;
     }
   }
 
@@ -384,21 +405,455 @@ $orange : #d86f44;
     left: 608px;
     width: 972px;
     height: 807px;
+
+    .hotdot {
+      top: 156px;
+      left: 254px;
+      cursor: pointer;
+    }
+
+    .description {
+      position: absolute;
+      top: 600px;
+      left: 128px;
+      width: 340px;
+      line-height: 22px;
+      font-size: 15px;
+      color: #6c7eba;
+      text-indent: 2em;
+
+      strong {
+        font-weight: normal;
+        font-size: 18px;
+        color: $orange;
+      }
+    }
+
+    .img {
+      width: 100%;
+      height: 100%;
+      background: url("../images/suv-01.jpg") no-repeat;
+    }
   }
 
-  .car-bd {
-    width: 100%;
-    height: 100%;
-    background: url("../images/suv-01.jpg") no-repeat;
+  .car-type-select {
+    position: absolute;
+    top: 676px;
+    left: 1648px;
   }
 }
 
-//  components
+//  scene03
+.scene03 {
+  .title {
+    left: 62px;
+    top: 116px;
+    font-size: 0;
+
+    .item02 {
+      margin-top: 10px;
+    }
+  }
+
+  .hotdot {
+    top: 309px;
+    left: 866px;
+    cursor: pointer;
+
+    .qrcode {
+      top: -150px;
+      left: -10px;
+      width: 118px;
+      height: 110px;
+      padding: 15px;
+      background: url("../images/qrcode-bg.png") no-repeat;
+      transition: all .3s;
+      opacity: 0;
+      transform: translate3d(0, 5px, 0);
+    }
+
+    &.active {
+      .qrcode {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  .model-select {
+    left: 152px;
+    top: 116px;
+
+    .item {
+      width: 150px;
+      overflow: hidden;
+      margin-bottom: 27px;
+    }
+
+    .item02 {
+      margin-left: 22px;
+    }
+
+    .item03 {
+      margin-left: 44px;
+    }
+
+    .radio {
+      float: left;
+      margin-top: 1px;
+      margin-right: 24px;
+    }
+
+    .model {
+      float: left;
+
+      img {
+        display: block;
+      }
+    }
+  }
+
+  .panel {
+    top: 280px;
+    left: 54px;
+  }
+
+  .panel-hd {
+    margin-left: -6px;
+  }
+
+  .panel-bd-item {
+    position: relative;
+    width: 440px;
+    height: 563px;
+    padding-top: 21px;
+    background: url("../images/s03-panel-bg.jpg") no-repeat;
+
+    .row {
+      height: 56px;
+      position: relative;
+    }
+
+    .tt {
+      position: absolute;
+      left: 37px;
+      height: 56px;
+      line-height: 56px;
+      color: #3c4e76;
+      font-size: 20px;
+    }
+
+    .bd {
+      position: absolute;
+      right: 40px;
+      height: 56px;
+      line-height: 56px;
+      color: #3c4e76;
+      font-size: 20px;
+
+      strong {
+        color: $orange;
+        font-size: 50px;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .wrap {
+    overflow: hidden;
+
+    .body {
+      width: 100%;
+      height: 506px;
+      padding-right: 20px;
+      overflow-y: scroll;
+    }
+  }
+
+  .triangle {
+    left: 0;
+    right: 0;
+    bottom: 11px;
+    height: 11px;
+    background: url("../images/icon-triangle-down.png") no-repeat center center;
+  }
+
+  // car
+  .car {
+    @extend .full-size;
+  }
+
+  .car-type-select {
+    position: absolute;
+    top: 816px;
+    left: 1304px;
+    z-index: 1100;
+  }
+
+  .car-model-select {
+    position: absolute;
+    top: 816px;
+    left: 1515px;
+    z-index: 1100;
+  }
+}
+
+//  scene04
+.scene04 {
+  color: $darkblue;
+
+  p, .select {
+    margin-bottom: 18px;
+  }
+
+  .tt {
+    margin-bottom: 10px;
+    margin-left: -5px;
+
+    img { vertical-align: top; }
+  }
+
+  .radio {
+    position: relative;
+    top: 8px;
+    margin-right: 22px;
+
+    * {
+      display: inline-block;
+    }
+  }
+
+  .radio-label {
+    margin-right: 34px;
+  }
+
+  .car {
+    @extend .full-size;
+  }
+
+  .title {
+    top: 126px;
+    left: 62px;
+    width: 425px;
+    line-height: 15px;
+    text-indent: 2em;
+    font-size: 12px;
+    color: #6e6e85;
+  }
+
+  .person-info {
+    top: 263px;
+    left: 64px;
+  }
+
+  .select-car-model {
+    top: 263px;
+    left: 366px;
+  }
+
+  .select-dealer {
+    top: 403px;
+    left: 366px;
+    z-index: 10;
+  }
+
+  .buyer-plan {
+    top: 643px;
+    left: 64px;
+  }
+
+  .submit {
+    left: 222px;
+    top: 780px;
+    width: 228px;
+    height: 63px;
+    padding: 10px 13px 9px 12px;
+    background: url("../images/btn-submit.png") no-repeat;
+    cursor: pointer;
+    border: none;
+    transition: all .25s;
+
+    .hover {
+      height: 100%;
+      transition: all .9s;
+      background: url("../images/btn-submit-hover.png") no-repeat -203px 0;
+    }
+
+    &:active {
+      margin-top: -2px;
+    }
+
+    &:hover {
+      .hover {
+        background-position: 203px 0;
+      }
+    }
+  }
+}
+
+// scene05
+.scene05 {
+  background: url("../images/s05-bg.jpg");
+  background-size: cover;
+
+  .title {
+    left: 62px;
+    top: 116px;
+    font-size: 0;
+
+    .item02 {
+      margin-top: 10px;
+    }
+  }
+
+  .panel {
+    top: 256px;
+    width: 506px;
+  }
+
+  .panel-hd {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 0 0 56px;
+    font-size: 25px;
+    color: #fff;
+    text-shadow: 0 0 10px rgb(73, 137, 221);
+  }
+
+  .panel-bd {
+    width: 410px;
+    height: 500px;
+    padding: 125px 0 0 96px;
+    background: url("../images/s05-panel-bg.png") no-repeat;
+
+    .item {
+      width: 302px;
+      font-size: 20px;
+      line-height: 1.6em;
+      margin-bottom: 30px;
+      color: $darkblue;
+
+      strong {
+        color: $orange;
+        font-size: 30px;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .province {
+    top: 787px;
+    left:1212px;
+  }
+
+  .city {
+    top: 787px;
+    left: (1212+214)*1px;
+  }
+
+  .dealer {
+    top: 787px;
+    left: (1212+214*2)*1px;
+  }
+
+  .map {
+    top: 165px;
+    left: 643px;
+  }
+}
+
+// scene06
+.scene06 {
+  background: url("../images/s05-bg.jpg");
+  background-size: cover;
+
+  .title {
+    left: 75px;
+    top: 112px;
+    font-size: 12px;
+    color: #6e6e85;
+  }
+
+  .panel {
+    top: 256px;
+    width: 552px;
+    height: 749px;
+    background: url("../images/s06-panel-bg.png") no-repeat;
+
+    .part02 {
+      margin-top: 20px;
+    }
+  }
+
+  .panel-hd {
+    padding: 0 0 0 56px;
+    font-size: 25px;
+    color: #fff;
+    text-shadow: 0 0 10px rgb(73, 137, 221);
+  }
+
+  .panel-bd {
+    padding: 40px 0 30px 97px;
+
+    .item {
+      width: 320px;
+      font-size: 20px;
+      line-height: 1.6em;
+      margin-bottom: 20px;
+      color: $darkblue;
+
+      strong {
+        color: $orange;
+        font-size: 30px;
+        font-weight: normal;
+      }
+    }
+  }
+
+
+  .province {
+    top: 787px;
+    left:1212px;
+  }
+
+  .city {
+    top: 787px;
+    left: (1212+214)*1px;
+  }
+
+  .dealer {
+    top: 787px;
+    left: (1212+214*2)*1px;
+  }
+
+  .btn {
+    top: 770px;
+    left: 1553px;
+    width: 228px;
+    height: 63px;
+    background: url("../images/s06-welcome.png") no-repeat;
+    border: none;
+  }
+
+  .map {
+    top: 165px;
+    left: 643px;
+  }
+}
+
+/*======================================================================
+      Components
+  ======================================================================*/
 //  select
 .select {
+  position: relative;
   width: 214px;
+  color: $darkblue;
 
   &.active {
+    z-index: 1000;
+
     .select-bd {
       display: block;
     }
@@ -409,6 +864,7 @@ $orange : #d86f44;
   height: 55px;
   padding: 0 22px;
   line-height: 55px;
+  font-size: 18px;
   background: url("../images/select-hd-bg.png") no-repeat;
   cursor: pointer;
 
@@ -424,6 +880,10 @@ $orange : #d86f44;
 
 .select-bd {
   display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 55px;
 
   .bd {
     padding: 5px 0;
@@ -445,6 +905,65 @@ $orange : #d86f44;
   .bottom {
     height: 8px;
     background: url("../images/select-bd-bottom.png") no-repeat;
+  }
+}
+
+//  radio
+.radio {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  .radio-hd {
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    right: -15px;
+    width: 9px;
+    height: 9px;
+    background: url("../images/icon-plus.png") no-repeat;
+    transition: all .3s;
+  }
+
+  .radio-bd {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+  }
+
+  &.active {
+    .radio-hd {
+      transform: translate3d(-22px, 0, 0) rotate(180deg);
+    }
+  }
+}
+
+// input
+.input {
+  width: 170px;
+  height: 55px;
+  padding: 0 22px;
+  line-height: 55px;
+  background: url("../images/select-hd-bg.png") no-repeat;
+  border: none;
+  color: $darkblue;
+  font-size: 18px;
+
+  &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    $darkblue;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    $darkblue;
+    opacity:  1;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    $darkblue;
+    opacity:  1;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:    $darkblue;
   }
 }
 

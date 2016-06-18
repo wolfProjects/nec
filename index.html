@@ -17,7 +17,7 @@
 
 <!-- scene01 -->
 <section class="scene scene01">
-    <i class="pa icon-close"></i>
+    <i class="pa btn-close"></i>
     <div class="scene-bd">
         <div class="pa time">15:15 PM</div>
         <div class="pa logo">
@@ -35,13 +35,35 @@
             <a class="item item05"></a>
         </div>
     </div>
+
+    <!-- 导航 -->
+    <nav class="pa nav">
+        <span class="item item01"></span>
+        <span class="item item02"></span>
+        <span class="item item03"></span>
+        <span class="item item04"></span>
+        <span class="item item05"></span>
+        <span class="item item06"></span>
+    </nav>
+    <!-- end 导航 -->
 </section>
 <!-- end scene01 -->
 
-<a class="pa logo-common"></a>
-
 <!-- scene02 -->
-<section class="scene scene02">
+<section class="scene scene02" style="display: none;">
+    <div class="pa car">
+        <div class="pa hotdot">
+            <img src="assets/images/360browsing-txt.png" width="150" height="24" alt=""/>
+            <div class="dot">
+                <div class="dot-bd"></div>
+            </div>
+        </div>
+        <div class="description">
+            <strong>SUV</strong><span>车是系列中的最新款 ， 这款全新开发的新一代suv车，配置全新研发六缸电喷发动机，排量3956cc， 动力性能好，排气符合当今全新欧洲Ш号标准， 高度环保。</span>
+        </div>
+        <div class="img"></div>
+    </div>
+
     <div class="topic">
         <div class="pa hd">
             <img src="assets/images/s02-car-browsing.png" alt="" width="124" height="49"/>
@@ -67,41 +89,17 @@
         <p class="pa bd">追求舒适和完美的驾乘体验,充满浓重的人文气息，彰显优雅豪华和勇于进取的追求。</p>
     </div>
 
-    <div class="pa car">
-        <div class="car-bd"></div>
-    </div>
-
-    <!-- 车型选择 tab -->
-    <div class="pa car-type-tab">
-        <div class="item item01 active" data-type="a">
-            <i class="badge">A</i>
-            <i class="triangle"></i>
-            <i class="icon"></i>
-        </div>
-        <div class="item item02" data-type="b">
-            <i class="badge">B</i>
-            <i class="triangle"></i>
-            <i class="icon"></i>
-        </div>
-        <div class="item item03" data-type="c">
-            <i class="badge">C</i>
-            <i class="triangle"></i>
-            <i class="icon"></i>
-        </div>
-    </div>
-    <!-- end 车型选择 tab -->
-
     <!-- 车型选择 select -->
-    <div class="pa select car-type-select" data-type="jiaoche">
+    <div class="pa select car-type-select" data-value="jiaoche">
         <div class="select-hd">
             <span>轿车</span>
             <i class="icon"></i>
         </div>
         <div class="select-bd">
             <div class="bd">
-                <div class="item" data-type="jiaoche">轿车</div>
-                <div class="item" data-type="suv">SUV</div>
-                <div class="item" data-type="haohua">豪华车</div>
+                <div class="item" data-value="jiaoche">轿车</div>
+                <div class="item" data-value="suv">SUV</div>
+                <div class="item" data-value="haohua">豪华车</div>
             </div>
             <div class="bottom"></div>
         </div>
@@ -109,18 +107,508 @@
     <!-- end 车型选择 select -->
 
     <!-- 导航 -->
-    <section class="pa nav">
-        <a class="item item01" href=""></a>
-        <a class="item item02" href=""></a>
-        <a class="item item03" href=""></a>
-        <a class="item item04" href=""></a>
-        <a class="item item05" href=""></a>
-        <a class="item item06" href=""></a>
-    </section>
+    <nav class="pa nav">
+        <span class="item item01"></span>
+        <span class="item item02"></span>
+        <span class="item item03"></span>
+        <span class="item item04"></span>
+        <span class="item item05"></span>
+        <span class="item item06"></span>
+    </nav>
     <!-- end 导航 -->
 </section>
 <!-- end scene02 -->
 
+<!-- scene03 -->
+<section class="scene scene03" style="display: none;">
+    <!-- car -->
+    <div class="pa car">
+        <div class="pa hotdot">
+            <img src="assets/images/s03-getqrcode.png" width="127" height="24" alt=""/>
+            <div class="pa dot">
+                <div class="dot-bd"></div>
+            </div>
+            <div class="pa qrcode">
+                <img src="assets/images/qrcode.jpg" alt="" width="120" height="113"/>
+            </div>
+        </div>
+
+        <div class="car-bd">
+            <img src="assets/images/suv-canshu01.jpg" alt="" width="1920" height="1080"/>
+        </div>
+    </div>
+    <!-- end car -->
+
+    <div class="topic">
+        <div class="pa hd">
+            <img src="assets/images/s03-comparison-models.png" alt="" width="180" height="48"/>
+        </div>
+    </div>
+
+    <div class="pa zhuangshi">
+        <div class="pa circle"></div>
+        <div class="pa line"></div>
+    </div>
+
+    <div class="pa title">
+        <div class="item01"><img src="assets/images/s03-title01.png" alt=""/></div>
+        <div class="item02"><img src="assets/images/s03-title02.png" alt=""/></div>
+    </div>
+
+    <!-- 模式选择 radio -->
+    <div class="pa model-select">
+        <div class="item item01">
+            <span class="radio">
+                <span class="radio-hd"></span>
+                <span class="radio-bd"></span>
+            </span>
+            <div class="model"><img src="assets/images/s03-modeltitle-std.png" alt=""/></div>
+        </div>
+        <div class="item item02">
+           <span class="radio">
+                <span class="radio-hd"></span>
+                <span class="radio-bd"></span>
+            </span>
+            <div class="model"><img src="assets/images/s03-modeltitle-optional.png" alt=""/></div>
+        </div>
+        <div class="pa item item03">
+            <span class="radio">
+                <span class="radio-hd"></span>
+                <span class="radio-bd"></span>
+            </span>
+            <div class="model"><img src="assets/images/s03-modeltitle-nothing.png" alt=""/></div>
+        </div>
+    </div>
+    <!-- end 模式选择 radio -->
+
+    <!-- 基本参数 -->
+    <div class="pa panel">
+        <div class="panel-hd">
+            <img src="assets/images/s03-panel-title.png" alt="" width="120" height="50"/>
+        </div>
+        <div class="panel-bd">
+            <div class="panel-bd-item">
+                <div class="wrap">
+                    <div class="body">
+                        <!--<div class="row">-->
+                        <!--<p class="tt">厂商指导价</p>-->
+                        <!--<p class="bd">138.68万</p>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <div class="pa triangle"></div>
+            </div>
+        </div>
+    </div>
+    <!-- end 基本参数 -->
+
+    <!-- 车型选择 select -->
+    <div class="pa select car-type-select" data-value="jiaoche">
+        <div class="select-hd">
+            <span>轿车</span>
+            <i class="icon"></i>
+        </div>
+        <div class="select-bd">
+            <div class="bd">
+                <div class="item" data-value="jiaoche">轿车</div>
+                <div class="item" data-value="suv">SUV</div>
+                <div class="item" data-value="haohua">豪华车</div>
+            </div>
+            <div class="bottom"></div>
+        </div>
+    </div>
+    <!-- end 车型选择 select -->
+
+    <!-- 车型选择 select -->
+    <div class="pa select car-model-select" data-value="tezhuangjinianban">
+        <div class="select-hd">
+            <span>特装纪念版</span>
+            <i class="icon"></i>
+        </div>
+        <div class="select-bd">
+            <div class="bd">
+                <div class="item" data-value="tezhuangjinianban">特装纪念版</div>
+                <div class="item" data-value="suv">SUV</div>
+                <div class="item" data-value="haohua">豪华车</div>
+            </div>
+            <div class="bottom"></div>
+        </div>
+    </div>
+    <!-- end 车型选择 select -->
+
+    <!-- 导航 -->
+    <nav class="pa nav">
+        <span class="item item01"></span>
+        <span class="item item02"></span>
+        <span class="item item03"></span>
+        <span class="item item04"></span>
+        <span class="item item05"></span>
+        <span class="item item06"></span>
+    </nav>
+    <!-- end 导航 -->
+</section>
+<!-- end scene03 -->
+
+<!-- scene04 -->
+<section class="scene scene04" style="display: none;">
+    <div class="pa car">
+        <img src="assets/images/s04-car.png" alt="" width="1920" height="1080"/>
+    </div>
+
+    <div class="topic">
+        <div class="pa hd">
+            <img src="assets/images/s04-test-drive.png" alt="" width="113" height="48"/>
+        </div>
+    </div>
+
+    <div class="pa zhuangshi">
+        <div class="pa circle"></div>
+        <div class="pa line"></div>
+    </div>
+
+    <div class="pa title">
+        <p>感谢您的选择，现在您只需要填写上您的个人信息及联系方式即可完成试驾预约。</p>
+        <p>温馨提示：由于试驾车数量有限，如出现排队现象，请您谅解，我们将尽快安排协调，欢迎试驾。</p>
+    </div>
+
+    <!-- 个人信息 -->
+    <div class="pa person-info">
+        <p class="tt"><img src="assets/images/s04-person-info.png" alt="" width="222" height="41"/></p>
+        <p><input type="text" class="input" placeholder="姓名"/></p>
+        <p>
+            <span class="radio" data-value="male">
+                <span class="radio-hd"></span>
+                <span class="radio-bd"></span>
+            </span>
+            <span class="radio-label">先生</span>
+
+            <span class="radio" data-value="female">
+                <span class="radio-hd"></span>
+                <span class="radio-bd"></span>
+            </span>
+            <span class="radio-label">女士</span>
+        </p>
+        <p><input type="text" class="input" placeholder="手机号"/></p>
+        <p><input type="email" class="input" placeholder="邮箱"/></p>
+    </div>
+    <!-- end 个人信息 -->
+
+    <!-- 车型选择 -->
+    <div class="pa select-car-model">
+        <p class="tt"><img src="assets/images/s04-car-model.png" alt="" width="274" height="41"/></p>
+
+        <!-- 车型选择 select -->
+        <div class="pa select car-type-select" data-value="jiaoche">
+            <div class="select-hd">
+                <span>轿车</span>
+                <i class="icon"></i>
+            </div>
+            <div class="select-bd">
+                <div class="bd">
+                    <div class="item" data-value="jiaoche">轿车</div>
+                    <div class="item" data-value="suv">SUV</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                </div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+        <!-- end 车型选择 select -->
+    </div>
+    <!-- end 车型选择 -->
+
+    <!-- 经销商 -->
+    <div class="pa select-dealer">
+        <p class="tt"><img src="assets/images/s04-jingxiaoshang.png" alt="" width="144" height="41"/></p>
+
+        <!-- 省份 select -->
+        <div class="select province" data-value="hebei">
+            <div class="select-hd">
+                <span>河北</span>
+                <i class="icon"></i>
+            </div>
+            <div class="select-bd">
+                <div class="bd">
+                    <div class="item" data-value="hebei">河北</div>
+                    <div class="item" data-value="hunan">湖南</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                </div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+        <!-- end 省份 select -->
+
+        <!-- 城市 select -->
+        <div class="select city" data-value="chengshi">
+            <div class="select-hd">
+                <span>城市</span>
+                <i class="icon"></i>
+            </div>
+            <div class="select-bd">
+                <div class="bd">
+                    <div class="item" data-value="shijiazhuang">石家庄</div>
+                    <div class="item" data-value="suv">SUV</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                </div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+        <!-- end 城市 select -->
+
+        <!-- 经销商 select -->
+        <div class="select dealer" data-value="jiaoche">
+            <div class="select-hd">
+                <span>轿车</span>
+                <i class="icon"></i>
+            </div>
+            <div class="select-bd">
+                <div class="bd">
+                    <div class="item" data-value="jiaoche">轿车</div>
+                    <div class="item" data-value="suv">SUV</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                </div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+        <!-- end 经销商 select -->
+    </div>
+    <!-- end 经销商 -->
+
+    <!-- 购买计划 -->
+    <div class="pa buyer-plan">
+        <p class="tt"><img src="assets/images/s04-buyer-plan.png" alt="" width="118" height="41"/></p>
+        <p>
+            <span class="radio" data-value="1">
+                <span class="radio-hd"></span>
+                <span class="radio-bd"></span>
+            </span>
+            <span class="radio-label">1周内</span>
+
+            <span class="radio" data-value="2">
+                <span class="radio-hd"></span>
+                <span class="radio-bd"></span>
+            </span>
+            <span class="radio-label">1月内</span>
+
+            <span class="radio" data-value="3">
+                <span class="radio-hd"></span>
+                <span class="radio-bd"></span>
+            </span>
+            <span class="radio-label">1-3月内</span>
+            <span class="radio" data-value="4">
+                <span class="radio-hd"></span>
+                <span class="radio-bd"></span>
+            </span>
+            <span class="radio-label">1年以上</span>
+        </p>
+    </div>
+    <!-- end 购买计划 -->
+
+    <!-- submit button -->
+    <button class="pa submit">
+        <div class="hover"></div>
+    </button>
+    <!-- end submit button -->
+
+    <!-- 导航 -->
+    <nav class="pa nav">
+        <span class="item item01"></span>
+        <span class="item item02"></span>
+        <span class="item item03"></span>
+        <span class="item item04"></span>
+        <span class="item item05"></span>
+        <span class="item item06"></span>
+    </nav>
+    <!-- end 导航 -->
+</section>
+<!-- end scene04 -->
+
+<!-- scene05 -->
+<section class="scene scene05" style="display: none;">
+    <div class="topic">
+        <div class="pa hd">
+            <img src="assets/images/s05-dealer.png" alt="" width="85" height="47"/>
+        </div>
+    </div>
+
+    <div class="pa zhuangshi">
+        <div class="pa circle"></div>
+        <div class="pa line"></div>
+    </div>
+
+    <div class="pa title">
+        <div class="item01"><img src="assets/images/s03-title01.png" alt=""></div>
+        <div class="item02"><img src="assets/images/s03-title02.png" alt=""></div>
+    </div>
+
+    <!-- 经销商信息 -->
+    <div class="pa panel">
+        <div class="panel-hd">东湖区汽车4S经销店</div>
+        <div class="panel-bd">
+            <p class="item">联系电话：<strong>13964087137</strong></p>
+            <p class="item">服务热线：13964087137</p>
+            <p class="item">店面地址：江西省南昌市东湖区</p>
+            <p class="item">网址：http://www.baidu.com</p>
+        </div>
+    </div>
+    <!-- end 经销商信息 -->
+
+    <!-- 经销商查询 select group -->
+    <!-- 省份 select -->
+    <div class="pa select province" data-value="hebei">
+        <div class="select-hd">
+            <span>河北</span>
+            <i class="icon"></i>
+        </div>
+        <div class="select-bd">
+            <div class="bd">
+                <div class="item" data-value="hebei">河北</div>
+                <div class="item" data-value="hunan">湖南</div>
+                <div class="item" data-value="shanghai">上海</div>
+            </div>
+            <div class="bottom"></div>
+        </div>
+    </div>
+    <!-- end 省份 select -->
+
+    <!-- 城市 select -->
+    <div class="pa select city" data-value="chengshi">
+        <div class="select-hd">
+            <span>城市</span>
+            <i class="icon"></i>
+        </div>
+        <div class="select-bd">
+            <div class="bd">
+                <div class="item" data-value="shijiazhuang">石家庄</div>
+                <div class="item" data-value="suv">SUV</div>
+                <div class="item" data-value="haohua">豪华车</div>
+            </div>
+            <div class="bottom"></div>
+        </div>
+    </div>
+    <!-- end 城市 select -->
+
+    <!-- 经销商 select -->
+    <div class="pa select dealer" data-value="jiaoche">
+        <div class="select-hd">
+            <span>经销商</span>
+            <i class="icon"></i>
+        </div>
+        <div class="select-bd">
+            <div class="bd">
+                <div class="item" data-value="jiaoche">经销商</div>
+                <div class="item" data-value="suv">SUV</div>
+                <div class="item" data-value="haohua">豪华车</div>
+            </div>
+            <div class="bottom"></div>
+        </div>
+    </div>
+    <!-- end 经销商 select -->
+    <!-- end 经销商查询 select group -->
+
+    <!-- map -->
+    <div class="pa map">
+        <img src="assets/images/map.jpg" alt=""/>
+    </div>
+    <!-- end map -->
+
+    <!-- 导航 -->
+    <nav class="pa nav">
+        <span class="item item01"></span>
+        <span class="item item02"></span>
+        <span class="item item03"></span>
+        <span class="item item04"></span>
+        <span class="item item05"></span>
+        <span class="item item06"></span>
+    </nav>
+    <!-- end 导航 -->
+</section>
+<!-- end scene05 -->
+
+<!-- scene06 -->
+<section class="scene scene06" style="display: none;">
+    <div class="topic">
+        <div class="pa hd">
+            <img src="assets/images/s06-contactus.png" alt="" width="115" height="48"/>
+        </div>
+    </div>
+
+    <div class="pa zhuangshi">
+        <div class="pa circle"></div>
+        <div class="pa line"></div>
+    </div>
+
+    <div class="pa title">
+        <p>收件人:  日电信息系统（中国）有限公司<br/><span style="padding: 21px"></span>二制造 / 自动车 / 系统部</p>
+        <p></p>
+        <p>地址：北京市学院路世宁大厦17层</p>
+        <p>邮编：8888888</p>
+    </div>
+
+    <!-- 经销商信息 -->
+    <div class="pa panel panel01">
+        <div class="part01">
+            <div class="panel-hd">东湖区汽车4S经销店</div>
+            <div class="panel-bd">
+                <p class="item">联系电话：<strong>13964087137</strong></p>
+                <p class="item">服务热线：13964087137</p>
+                <p class="item">传真：010-88888888</p>
+                <p class="item">地址：北京市学院路世宁大厦17层</p>
+            </div>
+        </div>
+        <div class="part02">
+            <div class="panel-hd">加盟经销商请联系</div>
+            <div class="panel-bd">
+                <p class="item">联系人：<strong>NEC</strong></p>
+                <p class="item">咨询电话：<strong>13964087137</strong></p>
+                <p class="item">传真：010-88888888</p>
+                <p class="item">电子邮件：lili@nec.com</p>
+            </div>
+        </div>
+    </div>
+    <!-- end 经销商信息 -->
+
+    <!-- map -->
+    <div class="pa map">
+        <img src="assets/images/map.jpg" alt=""/>
+    </div>
+    <!-- end map -->
+
+    <button class="pa btn"></button>
+
+    <!-- 导航 -->
+    <nav class="pa nav">
+        <span class="item item01"></span>
+        <span class="item item02"></span>
+        <span class="item item03"></span>
+        <span class="item item04"></span>
+        <span class="item item05"></span>
+        <span class="item item06"></span>
+    </nav>
+    <!-- end 导航 -->
+</section>
+<!-- end scene06 -->
+
+<a class="pa logo-common"></a>
+
+<!-- 车型选择 tab -->
+<div class="pa car-type-tab">
+    <div class="item item01 active" data-value="a">
+        <i class="badge">A</i>
+        <i class="triangle"></i>
+        <i class="icon"></i>
+    </div>
+    <div class="item item02" data-value="b">
+        <i class="badge">B</i>
+        <i class="triangle"></i>
+        <i class="icon"></i>
+    </div>
+    <div class="item item03" data-value="c">
+        <i class="badge">C</i>
+        <i class="triangle"></i>
+        <i class="icon"></i>
+    </div>
+</div>
+<!-- end 车型选择 tab -->
 
 
 <!-- inject:js -->
