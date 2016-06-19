@@ -101,13 +101,15 @@ var app = {
     },
 
     date: function () {
-        var date = new Date();
-        var hours = (date.getHours()+24-2)%24;
-        var mid = 'AM';
+        setInterval(function () {
+            var date = new Date();
+            var hours = (date.getHours()+24-2)%24;
+            var mid = 'AM';
 
-        if(hours > 12) { mid ='PM'; }
+            if(hours > 12) { mid ='PM'; }
 
-        $('.scene01 .time').text(date.getHours() + ':' + date.getMinutes() + ' '  + mid);
+            $('.scene01 .time').text(date.getHours() + ':' + date.getMinutes() + ' '  + mid);
+        }, 1000);
     },
 
     //  导航与路由
@@ -139,8 +141,10 @@ var app = {
             //  车型选择切换卡 where scene02,03,04
             if (index == 2 || index == 3 || index == 4) {
                 $('.car-model-tab').addClass('active');
+                $('.full-car').fadeIn();
             } else {
                 $('.car-model-tab').removeClass('active');
+                $('.full-car').fadeOut();
             }
 
             //  经销商查询出现 where scene05
@@ -227,8 +231,8 @@ var app = {
         this.scene03();
 
         //test
-        $('.scene02, .car-model-tab').addClass('active');
-        $('.logo-common').show();
+        $('.scene01').addClass('active');
+        $('.background').addClass('s01');
     }
 };
 

@@ -411,7 +411,7 @@ $darkblue: #516a96;
 
 //  scene01
 .scene01 {
-  $preDelay: 3s;
+  $preDelay: 1s;
   $duration: 1s;
   $transitionDelay: .6s;
 
@@ -447,7 +447,6 @@ $darkblue: #516a96;
     .img01 {
       opacity: 0;
       transform: translate3d(0, 10px, 0);
-      transition: all $duration $preDelay;
     }
 
     .img02 {
@@ -455,7 +454,6 @@ $darkblue: #516a96;
       margin-top: 16px;
       opacity: 0;
       transform: translate3d(0, 10px, 0);
-      transition: all $duration ($transitionDelay*1+$preDelay);
     }
   }
 
@@ -468,7 +466,6 @@ $darkblue: #516a96;
     text-indent: 2em;
     opacity: 0;
     transform: translate3d(0, 10px, 0);
-    transition: all $duration ($transitionDelay*2+$preDelay);
 
     strong {
       font-weight: normal;
@@ -506,20 +503,29 @@ $darkblue: #516a96;
         transform: translate3d(0, 0, 0);
         opacity: 1;
       }
+
+      .img01 {
+        transition: all $duration $preDelay;
+      }
+
+      .img02 {
+        transition: all $duration ($transitionDelay*1+$preDelay);
+      }
     }
 
     .description {
       transform: translate3d(0, 0, 0);
+      transition: all $duration ($transitionDelay*2+$preDelay);
       opacity: 1;
     }
 
     $duration: .6s;
     $delay: .3s;
-    .item01 { animation: bounceInUp $duration (.8s + $delay*1) forwards; }
-    .item02 { animation: bounceInUp $duration (.8s + $delay*1.5) forwards; }
-    .item03 { animation: bounceInUp $duration (.8s + $delay*2) forwards; }
-    .item04 { animation: bounceInUp $duration (.8s + $delay*2.5) forwards; }
-    .item05 { animation: bounceInUp $duration (.8s + $delay*3) forwards; }
+    .item01 { animation: bounceInUp $duration (2.5s + $delay*1) forwards; }
+    .item02 { animation: bounceInUp $duration (2.5s + $delay*1.5) forwards; }
+    .item03 { animation: bounceInUp $duration (2.5s + $delay*2) forwards; }
+    .item04 { animation: bounceInUp $duration (2.5s + $delay*2.5) forwards; }
+    .item05 { animation: bounceInUp $duration (2.5s + $delay*3) forwards; }
   }
 
   @-webkit-keyframes bounceInUp {
