@@ -20,7 +20,9 @@
 <!-- end background -->
 
 <!-- full-car -->
-<div class="full-car" style="display: none"></div>
+<div class="full-car">
+    <div class="bd"></div>
+</div>
 <!-- end full-car -->
 
 <!-- scene01 -->
@@ -56,9 +58,9 @@
     </div>
 
     <div class="pa car">
-        <div class="description">
-            <strong>SUV</strong><span>车是系列中的最新款 ， 这款全新开发的新一代suv车，配置全新研发六缸电喷发动机，排量3956cc， 动力性能好，排气符合当今全新欧洲Ш号标准， 高度环保。</span>
-        </div>
+        <!-- 车类描述 -->
+        <div class="description"></div>
+        <!-- end 车类描述 -->
     </div>
 
     <div class="topic">
@@ -129,8 +131,8 @@
     </div>
 
     <div class="pa title">
-        <div class="item01"><img src="assets/images/s03-title01.png" alt=""/></div>
-        <div class="item02"><img src="assets/images/s03-title02.png" alt=""/></div>
+        <div class="item item01"><img src="assets/images/s03-title01.png" alt=""/></div>
+        <div class="item item02"><img src="assets/images/s03-title02.png" alt=""/></div>
     </div>
 
     <!-- 模式选择 radio -->
@@ -306,14 +308,14 @@
         <!-- end 城市 select -->
 
         <!-- 经销商 select -->
-        <div class="select dealer" data-value="jiaoche">
+        <div class="select dealer" data-value="jxs">
             <div class="select-hd">
                 <span>轿车</span>
                 <i class="icon"></i>
             </div>
             <div class="select-bd">
                 <div class="bd">
-                    <div class="item" data-value="jiaoche">轿车</div>
+                    <div class="item" data-value="jxs">经销商</div>
                     <div class="item" data-value="suv">SUV</div>
                     <div class="item" data-value="haohua">豪华车</div>
                 </div>
@@ -376,8 +378,8 @@
     </div>
 
     <div class="pa title">
-        <div class="item01"><img src="assets/images/s03-title01.png" alt=""></div>
-        <div class="item02"><img src="assets/images/s03-title02.png" alt=""></div>
+        <div class="item item01"><img src="assets/images/s03-title01.png" alt=""></div>
+        <div class="item item02"><img src="assets/images/s03-title02.png" alt=""></div>
     </div>
 
     <!-- 经销商信息 -->
@@ -394,7 +396,16 @@
 
     <!-- map -->
     <div class="pa map">
-        <img src="assets/images/map.jpg" alt=""/>
+        <div class="sk-wave">
+            <div class="sk-rect sk-rect1"></div>
+            <div class="sk-rect sk-rect2"></div>
+            <div class="sk-rect sk-rect3"></div>
+            <div class="sk-rect sk-rect4"></div>
+            <div class="sk-rect sk-rect5"></div>
+        </div>
+        <div class="bd">
+            <img src="assets/images/map.jpg" alt="" width="1121" height="569"/>
+        </div>
     </div>
     <!-- end map -->
 </section>
@@ -421,7 +432,7 @@
     </div>
 
     <!-- 经销商信息 -->
-    <div class="pa panel panel01">
+    <div class="pa panel">
         <div class="part01">
             <div class="panel-hd">东湖区汽车4S经销店</div>
             <div class="panel-bd">
@@ -445,7 +456,16 @@
 
     <!-- map -->
     <div class="pa map">
-        <img src="assets/images/map.jpg" alt=""/>
+        <div class="sk-wave">
+            <div class="sk-rect sk-rect1"></div>
+            <div class="sk-rect sk-rect2"></div>
+            <div class="sk-rect sk-rect3"></div>
+            <div class="sk-rect sk-rect4"></div>
+            <div class="sk-rect sk-rect5"></div>
+        </div>
+        <div class="bd">
+            <img src="assets/images/map.jpg" alt="" width="1121" height="569"/>
+        </div>
     </div>
     <!-- end map -->
 
@@ -476,7 +496,7 @@
 <!-- end 车型选择 tab -->
 
 <!-- 导航 -->
-<nav class="pa nav" style="display: none">
+<nav class="pa nav">
     <span class="item item01"></span>
     <span class="item item02"></span>
     <span class="item item03"></span>
@@ -546,6 +566,7 @@
 <!-- inject:js -->
 <!-- page -->
 <script src="assets/scripts/jquery-2.1.3.min.js"></script>
+<script src="assets/scripts/typed.min.js"></script>
 <script src="assets/scripts/components.js"></script>
 <script src="assets/scripts/data.js"></script>
 <script src="assets/scripts/main.js"></script>

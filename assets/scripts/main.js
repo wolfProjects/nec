@@ -16,7 +16,7 @@ var app = {
         resetCarModelSelect();
 
         //  车类选择 select
-        $('body').on('click', '.car-type-select .item', function (e) {
+        $('.car-type-select').on('click', '.item', function (e) {
             var carType = $(this).attr('data-value');
             var carTypeSelect = $('.car-type-select');
 
@@ -31,13 +31,26 @@ var app = {
             $('.car-model-tab .item:first').addClass('active');
 
             //  更新 hotpot 位置
-            $('.hotdot').attr('class', 'pa hotdot').addClass(carType + '1');
+            $('.hotdot').attr('class', 'pa hotdot').hide().addClass(carType + '1');
+            setTimeout(function () {
+                $('.hotdot').fadeIn();
+            }, 600);
+
+            //  更新 车类介绍 typed 效果
+            $(".scene02 .description").typed('reset');
+            $(".scene02 .car").empty().append('<div class="description"></div>');
+            $(".scene02 .description").typed({
+                strings: [CAR_DATA[carType].description],
+                contentType: 'html', // or 'text'
+                showCursor: false,
+                startDelay: 1200
+            });
 
             resetCarModelSelect(carType);
         });
 
         //  车型选择 select
-        $('body').on('click', '.car-model-select .item', function (e) {
+        $('.car-model-select').on('click', '.item', function (e) {
             var carType = $(this).attr('data-value');
             var carModelSelect = $('.car-model-select');
 
@@ -51,11 +64,14 @@ var app = {
             $('.car-model-tab .item').eq($(this).index()).trigger('click');
 
             //  更新 hotpot 位置
-            $('.hotdot').attr('class', 'pa hotdot').addClass(carType);
+            $('.hotdot').attr('class', 'pa hotdot').hide().addClass(carType);
+            setTimeout(function () {
+                $('.hotdot').fadeIn();
+            }, 600);
         });
 
         //  车型选择 tab
-        $('body').on('click', '.car-model-tab .item', function (e) {
+        $('.car-model-tab').on('click', '.item', function (e) {
             e.stopPropagation();
             var carType = $('.car-type-select').attr('data-value');
             $(this).addClass('active').siblings().removeClass('active');
@@ -64,7 +80,7 @@ var app = {
             $('.car-model-select .select-bd .item').eq($(this).index())[0].click();
 
             //  更新 车型全尺寸图
-            $('.full-car').attr('class', 'full-car').addClass(carType + ($(this).index()+1));
+            $('.full-car').removeClass($('.full-car').attr('class').replace(/full-car||shadow||comparision/g, '')).addClass(carType + ($(this).index()+1));
         });
 
         function resetCarTypeSelect (carType) {
@@ -79,7 +95,10 @@ var app = {
             $('.car-type-select .select-bd .bd').append($(dom));
 
             //  更新 hotpot 位置
-            $('.hotdot').attr('class', 'pa hotdot').addClass(carType + '1');
+            $('.hotdot').attr('class', 'pa hotdot').hide().addClass(carType + '1');
+            setTimeout(function () {
+                $('.hotdot').fadeIn();
+            }, 600);
         }
 
         function resetCarModelSelect () {
@@ -96,7 +115,7 @@ var app = {
             $('.car-model-select .select-bd .bd').append($(dom));
 
             //  更新 全尺寸车图
-            $('.full-car').attr('class', 'full-car').addClass(carType + '1');
+            $('.full-car').removeClass($('.full-car').attr('class').replace(/full-car||shadow||comparision/g, '')).addClass(carType + '1');
         }
     },
 
@@ -114,18 +133,32 @@ var app = {
 
     //  导航与路由
     nav: function () {
+        //  dock 导航
         $('.nav .item').click(function () {
             var index = $(this).index()+1;
             if ($('.nav').hasClass('nav0' + index)) return;
             init(index, 'nav');
         });
 
+        //  首页导航
         $('.entry-list .item').click(function () {
             var index = $(this).index()+1;
             init(index+1, 'entry');
         });
 
         function init (index, type) {
+            var CAR_DATA = DATA.carType;
+            var carType = $('.car-type-select').attr('data-value');
+
+            //  给当前场景加上 active 状态
+            var curScene = $('.scene0' + index);
+            curScene.siblings('.scene').hide().removeClass('active');
+            curScene.show();
+            setTimeout(function () {
+                //  延迟添加 active 状态 来修复 transition 瞬间完成 BUG
+                curScene.addClass('active');
+            },10);
+
             //  当进入 Home 页时 隐藏公共 logo
             if (index == 1 && type == 'nav') {
                 $('.nav, .logo-common').fadeOut();
@@ -135,32 +168,67 @@ var app = {
                 $('.nav').addClass('nav0' + index).removeClass('nav01 nav02 nav03 nav04 nav05 nav06'.replace('nav0' + index, ''));
             }
 
-            //  给当前场景加上 active 状态
-            $('.scene0' + index).addClass('active').fadeIn().siblings('.scene').fadeOut().removeClass('active');
-
             //  车型选择切换卡 where scene02,03,04
             if (index == 2 || index == 3 || index == 4) {
                 $('.car-model-tab').addClass('active');
                 $('.full-car').fadeIn();
             } else {
                 $('.car-model-tab').removeClass('active');
-                $('.full-car').fadeOut();
+                $('.full-car').hide();
             }
+
+            //  汽车阴影
+            if (index == 3 || index == 4) {
+                $('.full-car').addClass('shadow comparison');
+                $('.hotdot').addClass('transform');
+            } else {
+                $('.full-car').removeClass('shadow comparison');
+                $('.hotdot').removeClass('transform');
+            }
+
+            //  地图 模拟加载
+            if (index == 5 || index == 6) {
+                setTimeout(function () {
+                    $('.map').addClass('finished');
+                }, 1000);
+            } else {
+                $('.map').removeClass('finished');
+            }
+
+            //  车类介绍 typed 效果
+            if (index == 2) {
+                $(".scene02 .description").typed('reset');
+                $(".scene02 .car").empty().append('<div class="description"></div>');
+                $(".scene02 .description").typed({
+                    strings: [CAR_DATA[carType].description],
+                    contentType: 'html', // or 'text'
+                    showCursor: false,
+                    startDelay: 1200
+                });
+            }
+
+            //  热点
+            $('.hotdot').hide();
+
+            setTimeout(function () {
+                $('.hotdot').fadeIn();
+            }, 600);
+
+            //  背景图
+            if (index == 1) $('.background').attr('class', 'background').addClass('s01');
+            if (index == 2) $('.background').attr('class', 'background').addClass('s02');
+            if (index == 3) $('.background').attr('class', 'background').addClass('s03');
+            if (index == 4) $('.background').attr('class', 'background').addClass('s04');
+            if (index == 5 || index == 6 ) $('.background').attr('class', 'background').addClass('s05');
 
             //  经销商查询出现 where scene05
             if (index == 5) {
-                $('.dealer-query-select').addClass('active');
+                $('.dealer-query-select').show();
+                setTimeout(function () {
+                    $('.dealer-query-select').addClass('active')
+                }, 10);
             } else {
-                $('.dealer-query-select').removeClass('active');
-            }
-
-            //  背景控制
-            if (index == 1) {
-                $('.background').addClass('s01').removeClass('s01 s02 s05'.replace('s01', ''));
-            } else if (index == 2 || index == 3 || index == 4 ) {
-                $('.background').addClass('s02').removeClass('s01 s02 s05'.replace('s02', ''));
-            } else if (index == 5 || index == 6 ) {
-                $('.background').addClass('s05').removeClass('s01 s02 s05'.replace('s05', ''));
+                $('.dealer-query-select').hide().removeClass('active');
             }
         }
     },
@@ -233,6 +301,10 @@ var app = {
         //test
         $('.scene01').addClass('active');
         $('.background').addClass('s01');
+
+        //$('.scene02, .car-model-tab').addClass('active');
+        //$('.nav, .logo-common').fadeIn();
+        //$('.background').addClass('s02');
     }
 };
 

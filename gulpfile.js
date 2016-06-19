@@ -46,6 +46,7 @@ var concatOrder = {
 
     js: [
         filePath.js + 'jquery-2.1.3.min.js',
+        filePath.js + 'typed.min.js',
         filePath.js + 'components.js',
         filePath.js + 'data.js',
         filePath.js + 'main.js'
