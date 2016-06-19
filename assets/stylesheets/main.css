@@ -11,7 +11,6 @@ html {
   height: 100%;
   font-family: "Adobe Heiti Std", "microsoft yahei", Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #fff;
-  background-color: #080929;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -21,6 +20,7 @@ html {
 body {
   height: 100%;
   overflow: hidden;
+  background-color: #080929;
 }
 
 a {
@@ -43,7 +43,7 @@ input {
   position: absolute !important;
 }
 
-.full-size, .scene, .scene01 .logo, .scene01 .entry-list, .scene03 .car, .scene04 .car {
+.full-size, .background, .full-car, .scene, .scene01 .logo, .scene01 .entry-list, .scene03 .car, .scene04 .car {
   top: 0;
   right: 0;
   bottom: 0;
@@ -59,7 +59,7 @@ input {
 .logo-common {
   left: 57px;
   top: 41px;
-  width: 244px;
+  width: 260px;
   height: 38px;
   background: url("../images/logo-common.png") no-repeat;
   z-index: 10;
@@ -67,54 +67,145 @@ input {
 
 .nav {
   bottom: 0;
-  left: 630px;
+  left: 0;
   z-index: 100;
   width: 762px;
 }
 .nav .item {
-  display: inline-block;
+  position: absolute;
+  bottom: 0;
   width: 68px;
-  height: 134px;
+  height: 135px;
   font-size: 0;
-  margin: 0 26px;
   background: no-repeat center center;
   background-size: cover;
   cursor: pointer;
 }
 .nav .item01 {
   background-image: url("../images/nav01.png");
+  left: 630px;
 }
 .nav .item02 {
   background-image: url("../images/nav02.png");
+  left: 750px;
 }
 .nav .item03 {
   background-image: url("../images/nav03.png");
+  left: 867px;
 }
 .nav .item04 {
   background-image: url("../images/nav04.png");
+  left: 984px;
 }
 .nav .item05 {
   background-image: url("../images/nav05.png");
+  left: 1100px;
 }
 .nav .item06 {
   background-image: url("../images/nav06.png");
+  left: 1215px;
+}
+.nav .active {
+  position: absolute;
+  bottom: 0;
+  width: 154px;
+  height: 179px;
+  background: url("../images/nav-active-bg.png") no-repeat;
+  opacity: 0;
+}
+.nav .text {
+  position: absolute;
+  bottom: 0;
+  width: 154px;
+  height: 179px;
+  opacity: 0;
+}
+.nav.nav02 .item02 {
+  background-image: url("../images/nav02-active.png");
+}
+.nav.nav02 .active {
+  left: 707px;
+  -webkit-animation: breath 4s infinite ease-in-out;
+          animation: breath 4s infinite ease-in-out;
+}
+.nav.nav02 .text {
+  left: 707px;
+  background: url("../images/nav02-txt.png") no-repeat center 137px;
+  opacity: 1;
+}
+.nav.nav03 .item03 {
+  background-image: url("../images/nav03-active.png");
+}
+.nav.nav03 .active {
+  left: 824px;
+  -webkit-animation: breath 4s infinite ease-in-out;
+          animation: breath 4s infinite ease-in-out;
+}
+.nav.nav03 .text {
+  left: 824px;
+  background: url("../images/nav03-txt.png") no-repeat center 137px;
+  opacity: 1;
+}
+.nav.nav04 .item04 {
+  background-image: url("../images/nav04-active.png");
+}
+.nav.nav04 .active {
+  left: 941px;
+  -webkit-animation: breath 4s infinite ease-in-out;
+          animation: breath 4s infinite ease-in-out;
+}
+.nav.nav04 .text {
+  left: 941px;
+  background: url("../images/nav04-txt.png") no-repeat center 137px;
+  opacity: 1;
+}
+.nav.nav05 .item05 {
+  background-image: url("../images/nav05-active.png");
+}
+.nav.nav05 .active {
+  left: 1057px;
+  -webkit-animation: breath 4s infinite ease-in-out;
+          animation: breath 4s infinite ease-in-out;
+}
+.nav.nav05 .text {
+  left: 1057px;
+  background: url("../images/nav05-txt.png") no-repeat center 137px;
+  opacity: 1;
+}
+.nav.nav06 .item06 {
+  background-image: url("../images/nav06-active.png");
+}
+.nav.nav06 .active {
+  left: 1172px;
+  -webkit-animation: breath 4s infinite ease-in-out;
+          animation: breath 4s infinite ease-in-out;
+}
+.nav.nav06 .text {
+  left: 1172px;
+  background: url("../images/nav06-txt.png") no-repeat center 137px;
+  opacity: 1;
 }
 
-.car-type-tab {
-  display: none;
+.car-model-tab {
   top: 264px;
   left: 1720px;
   padding-top: 15px;
+  -webkit-transition: all .45s;
+          transition: all .45s;
+  -webkit-transform: translate3d(20px, 0, 0);
+          transform: translate3d(20px, 0, 0);
+  opacity: 0;
+  z-index: 20;
 }
-.car-type-tab .item {
+.car-model-tab .item {
   width: 142px;
   height: 133px;
   margin-top: -15px;
-  background: url("../images/car-type-select.png") no-repeat 4px 4px;
+  background: url("../images/car-model-select.png") no-repeat 4px 4px;
   cursor: pointer;
   position: relative;
 }
-.car-type-tab .item .badge {
+.car-model-tab .item .badge {
   width: 34px;
   height: 34px;
   line-height: 34px;
@@ -127,7 +218,7 @@ input {
   background: #d86f44;
   opacity: 0;
 }
-.car-type-tab .item .triangle {
+.car-model-tab .item .triangle {
   opacity: 0;
   position: absolute;
   width: 15px;
@@ -136,46 +227,51 @@ input {
   top: 60px;
   background: url("../images/icon-triangle-left.png") no-repeat;
 }
-.car-type-tab .item .icon {
+.car-model-tab .item .icon {
   display: block;
   width: 100%;
   height: 100%;
-  background: url("../images/car-type-tab-jiaoche.png") no-repeat center center;
+  background: url("../images/car-model-tab-jiaoche.png") no-repeat center center;
   -webkit-transition: all .3s;
           transition: all .3s;
 }
-.car-type-tab .item.active {
+.car-model-tab .item.active {
   z-index: 10;
-  background: url("../images/car-type-select-active.png") no-repeat;
+  background: url("../images/car-model-select-active.png") no-repeat;
 }
-.car-type-tab .item.active .badge {
+.car-model-tab .item.active .badge {
   opacity: 1;
 }
-.car-type-tab .item.active .triangle {
+.car-model-tab .item.active .triangle {
   opacity: 1;
-  -webkit-animation: left 1.2s .2s 3 linear forwards;
-          animation: left 1.2s .2s 3 linear forwards;
+  -webkit-animation: left 1.2s .2s infinite linear forwards;
+          animation: left 1.2s .2s infinite linear forwards;
 }
-.car-type-tab .item.active .icon {
-  background: url("../images/car-type-tab-jiaoche-active.png") no-repeat center center;
+.car-model-tab .item.active .icon {
+  background: url("../images/car-model-tab-jiaoche-active.png") no-repeat center center;
 }
-.car-type-tab.jiaoche .item .icon {
-  background: url("../images/car-type-tab-jiaoche.png") no-repeat center center;
+.car-model-tab.car .item .icon {
+  background: url("../images/car-model-tab-jiaoche.png") no-repeat center center;
 }
-.car-type-tab.jiaoche .item.active .icon {
-  background: url("../images/car-type-tab-jiaoche-active.png") no-repeat center center;
+.car-model-tab.car .item.active .icon {
+  background: url("../images/car-model-tab-jiaoche-active.png") no-repeat center center;
 }
-.car-type-tab.haohua .item .icon {
-  background: url("../images/car-type-tab-haohua.png") no-repeat center center;
+.car-model-tab.luxury .item .icon {
+  background: url("../images/car-model-tab-haohua.png") no-repeat center center;
 }
-.car-type-tab.haohua .item.active .icon {
-  background: url("../images/car-type-tab-haohua-active.png") no-repeat center center;
+.car-model-tab.luxury .item.active .icon {
+  background: url("../images/car-model-tab-haohua-active.png") no-repeat center center;
 }
-.car-type-tab.suv .item .icon {
-  background: url("../images/car-type-tab-suv.png") no-repeat center center;
+.car-model-tab.suv .item .icon {
+  background: url("../images/car-model-tab-suv.png") no-repeat center center;
 }
-.car-type-tab.suv .item.active .icon {
-  background: url("../images/car-type-tab-suv-active.png") no-repeat center center;
+.car-model-tab.suv .item.active .icon {
+  background: url("../images/car-model-tab-suv-active.png") no-repeat center center;
+}
+.car-model-tab.active {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  opacity: 1;
 }
 
 .topic .hd {
@@ -198,11 +294,58 @@ input {
   top: 0;
   left: 14px;
   width: 2px;
-  height: 92px;
+  height: 0;
   background: #404057;
+  -webkit-transition: all .6s;
+          transition: all .6s;
+}
+
+.scene.active .line {
+  height: 92px;
+}
+
+.hotdot {
+  cursor: pointer;
+}
+.hotdot.car1 {
+  right: 923px;
+  bottom: 653px;
+}
+.hotdot.car2 {
+  right: 920px;
+  bottom: 653px;
+}
+.hotdot.car3 {
+  right: 946px;
+  bottom: 653px;
+}
+.hotdot.suv1 {
+  right: 950px;
+  bottom: 672px;
+}
+.hotdot.suv2 {
+  right: 958px;
+  bottom: 709px;
+}
+.hotdot.suv3 {
+  right: 940px;
+  bottom: 709px;
+}
+.hotdot.luxury1 {
+  right: 938px;
+  bottom: 646px;
+}
+.hotdot.luxury2 {
+  right: 923px;
+  bottom: 656px;
+}
+.hotdot.luxury3 {
+  right: 954px;
+  bottom: 676px;
 }
 
 .dot {
+  position: absolute;
   right: -34px;
   top: 16px;
   width: 16px;
@@ -210,6 +353,8 @@ input {
   padding: 6px 0 0 6px;
   background: rgba(216, 111, 68, 0.38);
   border-radius: 100%;
+  -webkit-animation: breath 2s infinite;
+          animation: breath 2s infinite;
 }
 .dot .dot-bd {
   width: 9px;
@@ -218,17 +363,65 @@ input {
   border-radius: 100%;
 }
 
+.background {
+  position: absolute;
+  background-color: #080929;
+  background-size: cover;
+  -webkit-transition: all .6s;
+          transition: all .6s;
+}
+.background.s01 {
+  background-image: url("../images/s01-bg.jpg");
+}
+.background.s02, .background.s03, .background.s04 {
+  background-image: url("../images/car-bg.jpg");
+}
+.background.s05, .background.s06 {
+  background-image: url("../images/map-bg.jpg");
+}
+
+.full-car {
+  position: absolute;
+  -webkit-transition: all .6s;
+          transition: all .6s;
+}
+.full-car.car1 {
+  background: url("../images/car-main-car01.png") no-repeat;
+}
+.full-car.car2 {
+  background: url("../images/car-main-car02.png") no-repeat;
+}
+.full-car.car3 {
+  background: url("../images/car-main-car03.png") no-repeat;
+}
+.full-car.luxury1 {
+  background: url("../images/car-main-luxury01.png") no-repeat;
+}
+.full-car.luxury2 {
+  background: url("../images/car-main-luxury02.png") no-repeat;
+}
+.full-car.luxury3 {
+  background: url("../images/car-main-luxury03.png") no-repeat;
+}
+.full-car.suv1 {
+  background: url("../images/car-main-suv01.png") no-repeat;
+}
+.full-car.suv2 {
+  background: url("../images/car-main-suv02.png") no-repeat;
+}
+.full-car.suv3 {
+  background: url("../images/car-main-suv03.png") no-repeat;
+}
+
 /*======================================================================
       Scenes
   ======================================================================*/
 .scene {
-  position: fixed;
+  position: absolute;
+  z-index: 10;
   background-size: cover;
 }
 
-.scene01 {
-  background-image: url("../images/s01-bg.jpg");
-}
 .scene01 .btn-close {
   width: 60px;
   height: 60px;
@@ -251,9 +444,21 @@ input {
   line-height: 0;
   top: 260px;
 }
+.scene01 .logo .img01 {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 10px, 0);
+          transform: translate3d(0, 10px, 0);
+  -webkit-transition: all 1s 3s;
+          transition: all 1s 3s;
+}
 .scene01 .logo .img02 {
   display: inline-block;
   margin-top: 16px;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 10px, 0);
+          transform: translate3d(0, 10px, 0);
+  -webkit-transition: all 1s 3.6s;
+          transition: all 1s 3.6s;
 }
 .scene01 .description {
   top: 438px;
@@ -262,6 +467,11 @@ input {
   margin-left: 318px;
   font-size: 24px;
   text-indent: 2em;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 10px, 0);
+          transform: translate3d(0, 10px, 0);
+  -webkit-transition: all 1s 4.2s;
+          transition: all 1s 4.2s;
 }
 .scene01 .description strong {
   font-weight: normal;
@@ -271,7 +481,8 @@ input {
   top: 675px;
   text-align: center;
 }
-.scene01 .entry-list a {
+.scene01 .entry-list .item {
+  opacity: 0;
   display: inline-block;
   width: 145px;
   height: 145px;
@@ -279,6 +490,7 @@ input {
   background: no-repeat;
   background-size: cover;
   font-size: 0;
+  cursor: pointer;
 }
 .scene01 .entry-list .item01 {
   background-image: url("../images/s01-entry01.png");
@@ -295,23 +507,69 @@ input {
 .scene01 .entry-list .item05 {
   background-image: url("../images/s01-entry05.png");
 }
-
-.scene02 {
-  background-image: url("../images/s02-bg.jpg");
+.scene01.active .logo .img01, .scene01.active .logo .img02 {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+.scene01.active .description {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+.scene01.active .item01 {
+  -webkit-animation: bounceInUp 0.6s 1.1s forwards;
+          animation: bounceInUp 0.6s 1.1s forwards;
+}
+.scene01.active .item02 {
+  -webkit-animation: bounceInUp 0.6s 1.25s forwards;
+          animation: bounceInUp 0.6s 1.25s forwards;
+}
+.scene01.active .item03 {
+  -webkit-animation: bounceInUp 0.6s 1.4s forwards;
+          animation: bounceInUp 0.6s 1.4s forwards;
+}
+.scene01.active .item04 {
+  -webkit-animation: bounceInUp 0.6s 1.55s forwards;
+          animation: bounceInUp 0.6s 1.55s forwards;
+}
+.scene01.active .item05 {
+  -webkit-animation: bounceInUp 0.6s 1.7s forwards;
+          animation: bounceInUp 0.6s 1.7s forwards;
+}
+@-webkit-keyframes bounceInUp {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 30px, 0);
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
 }
 .scene02 .title {
   top: 170px;
   left: 85px;
 }
 .scene02 .title .item01 {
-  width: 131px;
+  width: 0;
   height: 38px;
   overflow: hidden;
+  -webkit-transition: all .45s;
+          transition: all .45s;
 }
 .scene02 .title .item02 {
   overflow: hidden;
-  height: 38px;
+  height: 0;
   left: 140px;
+  -webkit-transition: all .45s;
+          transition: all .45s;
 }
 .scene02 .person {
   width: 485px;
@@ -356,11 +614,6 @@ input {
   width: 972px;
   height: 807px;
 }
-.scene02 .car .hotdot {
-  top: 156px;
-  left: 254px;
-  cursor: pointer;
-}
 .scene02 .car .description {
   position: absolute;
   top: 600px;
@@ -376,15 +629,16 @@ input {
   font-size: 18px;
   color: #d86f44;
 }
-.scene02 .car .img {
-  width: 100%;
-  height: 100%;
-  background: url("../images/suv-01.jpg") no-repeat;
-}
 .scene02 .car-type-select {
   position: absolute;
   top: 676px;
   left: 1648px;
+}
+.scene02.active .title .item01 {
+  width: 131px;
+}
+.scene02.active .title .item02 {
+  height: 38px;
 }
 
 .scene03 .title {
@@ -396,8 +650,6 @@ input {
   margin-top: 10px;
 }
 .scene03 .hotdot {
-  top: 309px;
-  left: 866px;
   cursor: pointer;
 }
 .scene03 .hotdot .qrcode {
@@ -423,15 +675,26 @@ input {
   top: 116px;
 }
 .scene03 .model-select .item {
+  opacity: 0;
   width: 150px;
   overflow: hidden;
   margin-bottom: 27px;
+  -webkit-transform: translate3d(-30px, 0, 0);
+          transform: translate3d(-30px, 0, 0);
+}
+.scene03 .model-select .item01 {
+  -webkit-transition: -webkit-transform 0.6s 2s;
+          transition: transform 0.6s 2s;
 }
 .scene03 .model-select .item02 {
   margin-left: 22px;
+  -webkit-transition: -webkit-transform 0.6s 2.5s;
+          transition: transform 0.6s 2.5s;
 }
 .scene03 .model-select .item03 {
   margin-left: 44px;
+  -webkit-transition: -webkit-transform 0.6s 3s;
+          transition: transform 0.6s 3s;
 }
 .scene03 .model-select .radio {
   float: left;
@@ -443,6 +706,11 @@ input {
 }
 .scene03 .model-select .model img {
   display: block;
+}
+.scene03.active .model-select .item {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 .scene03 .panel {
   top: 280px;
@@ -498,6 +766,8 @@ input {
   bottom: 11px;
   height: 11px;
   background: url("../images/icon-triangle-down.png") no-repeat center center;
+  -webkit-animation: breath 1s infinite;
+          animation: breath 1s infinite;
 }
 .scene03 .car-type-select {
   position: absolute;
@@ -587,10 +857,6 @@ input {
   background-position: 203px 0;
 }
 
-.scene05 {
-  background: url("../images/s05-bg.jpg");
-  background-size: cover;
-}
 .scene05 .title {
   left: 62px;
   top: 116px;
@@ -630,27 +896,36 @@ input {
   font-size: 30px;
   font-weight: normal;
 }
-.scene05 .province {
-  top: 787px;
-  left: 1212px;
-}
-.scene05 .city {
-  top: 787px;
-  left: 1426px;
-}
-.scene05 .dealer {
-  top: 787px;
-  left: 1640px;
-}
 .scene05 .map {
   top: 165px;
   left: 643px;
 }
 
-.scene06 {
-  background: url("../images/s05-bg.jpg");
-  background-size: cover;
+.dealer-query-select {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 1000, 0);
+          transform: translate3d(0, 1000, 0);
+  -webkit-transition: opacity .6s;
+          transition: opacity .6s;
 }
+.dealer-query-select .province {
+  top: 787px;
+  left: 1212px;
+}
+.dealer-query-select .city {
+  top: 787px;
+  left: 1426px;
+}
+.dealer-query-select .dealer {
+  top: 787px;
+  left: 1640px;
+}
+.dealer-query-select.active {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
 .scene06 .title {
   left: 75px;
   top: 112px;
@@ -723,6 +998,11 @@ input {
 .select.active {
   z-index: 1000;
 }
+.select.active .icon {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
 .select.active .select-bd {
   display: block;
 }
@@ -742,6 +1022,11 @@ input {
   width: 17px;
   height: 10px;
   background: url("../images/icon-triangle-down.png") no-repeat;
+  -webkit-transition: all .3s;
+          transition: all .3s;
+  -webkit-transform-origin: center center;
+      -ms-transform-origin: center center;
+          transform-origin: center center;
 }
 
 .select-bd {
@@ -840,5 +1125,27 @@ input {
   50% {
     -webkit-transform: translate3d(-5px, 0, 0);
             transform: translate3d(-5px, 0, 0);
+  }
+}
+@-webkit-keyframes breath {
+  from {
+    opacity: 0;
+  }
+  40%, 60% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes breath {
+  from {
+    opacity: 0;
+  }
+  40%, 60% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

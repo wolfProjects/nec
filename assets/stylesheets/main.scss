@@ -13,7 +13,6 @@ html {
   height: 100%;
   font-family: "Adobe Heiti Std", "microsoft yahei", Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: #fff;
-  background-color: #080929;
 
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -24,6 +23,7 @@ html {
 body {
   height: 100%;
   overflow: hidden;
+  background-color: #080929;
 }
 
 a {
@@ -67,7 +67,7 @@ $darkblue: #516a96;
 .logo-common {
   left: 57px;
   top: 41px;
-  width: 244px;
+  width: 260px;
   height: 38px;
   background: url("../images/logo-common.png") no-repeat;
   z-index: 10;
@@ -76,41 +76,91 @@ $darkblue: #516a96;
 //  nav
 .nav {
   bottom: 0;
-  left: 630px;
+  left: 0;
   z-index: 100;
   width: 762px;
 
   .item {
-    display: inline-block;
+    position: absolute;
+    bottom: 0;
     width: 68px;
-    height: 134px;
+    height: 135px;
     font-size: 0;
-    margin: 0 52/2*1px;
     background: no-repeat center center;
     background-size: cover;
     cursor: pointer;
   }
 
-  .item01 { background-image: url("../images/nav01.png"); }
-  .item02 { background-image: url("../images/nav02.png"); }
-  .item03 { background-image: url("../images/nav03.png"); }
-  .item04 { background-image: url("../images/nav04.png"); }
-  .item05 { background-image: url("../images/nav05.png"); }
-  .item06 { background-image: url("../images/nav06.png"); }
+  .item01 { background-image: url("../images/nav01.png"); left: 630px; }
+  .item02 { background-image: url("../images/nav02.png"); left: 750px; }
+  .item03 { background-image: url("../images/nav03.png"); left: 867px; }
+  .item04 { background-image: url("../images/nav04.png"); left: 984px; }
+  .item05 { background-image: url("../images/nav05.png"); left: 1100px; }
+  .item06 { background-image: url("../images/nav06.png"); left: 1215px; }
+
+  .active {
+    position: absolute;
+    bottom: 0;
+    width: 154px;
+    height: 179px;
+    background: url("../images/nav-active-bg.png") no-repeat;
+    opacity: 0;
+  }
+
+  .text{
+    position: absolute;
+    bottom: 0;
+    width: 154px;
+    height: 179px;
+    opacity: 0;
+  }
+
+  &.nav02 {
+    .item02 { background-image: url("../images/nav02-active.png"); }
+    .active { left: (750-(154-68)/2)*1px; animation: breath 4s infinite ease-in-out; }
+    .text { left: (750-(154-68)/2)*1px; background: url("../images/nav02-txt.png") no-repeat center 137px; opacity: 1; }
+  }
+
+  &.nav03 {
+    .item03 { background-image: url("../images/nav03-active.png"); }
+    .active { left: (867-(154-68)/2)*1px; animation: breath 4s infinite ease-in-out; }
+    .text { left: (867-(154-68)/2)*1px; background: url("../images/nav03-txt.png") no-repeat center 137px; opacity: 1; }
+  }
+
+  &.nav04 {
+    .item04 { background-image: url("../images/nav04-active.png"); }
+    .active { left: (984-(154-68)/2)*1px; animation: breath 4s infinite ease-in-out; }
+    .text { left: (984-(154-68)/2)*1px; background: url("../images/nav04-txt.png") no-repeat center 137px; opacity: 1; }
+  }
+
+  &.nav05 {
+    .item05 { background-image: url("../images/nav05-active.png"); }
+    .active { left: (1100-(154-68)/2)*1px; animation: breath 4s infinite ease-in-out; }
+    .text { left: (1100-(154-68)/2)*1px; background: url("../images/nav05-txt.png") no-repeat center 137px; opacity: 1; }
+  }
+
+  &.nav06 {
+    .item06 { background-image: url("../images/nav06-active.png"); }
+    .active { left: (1215-(154-68)/2)*1px; animation: breath 4s infinite ease-in-out; }
+    .text { left: (1215-(154-68)/2)*1px; background: url("../images/nav06-txt.png") no-repeat center 137px; opacity: 1; }
+  }
 }
 
 //  车型选择 tab
-.car-type-tab {
-  display: none;
+.car-model-tab {
   top: 264px;
   left: 1720px;
   padding-top: 15px;
+  transition: all .45s;
+  transform: translate3d(20px, 0, 0);
+  opacity: 0;
+  z-index: 20;
 
   .item {
     width: 142px;
     height: 133px;
     margin-top: -15px;
-    background: url("../images/car-type-select.png") no-repeat 4px 4px;
+    background: url("../images/car-model-select.png") no-repeat 4px 4px;
     cursor: pointer;
     position: relative;
 
@@ -142,13 +192,13 @@ $darkblue: #516a96;
       display: block;
       width: 100%;
       height: 100%;
-      background: url("../images/car-type-tab-jiaoche.png") no-repeat center center;
+      background: url("../images/car-model-tab-jiaoche.png") no-repeat center center;
       transition: all .3s;
     }
 
     &.active {
       z-index: 10;
-      background: url("../images/car-type-select-active.png") no-repeat;
+      background: url("../images/car-model-select-active.png") no-repeat;
 
       .badge {
         opacity: 1;
@@ -156,34 +206,34 @@ $darkblue: #516a96;
 
       .triangle {
         opacity: 1;
-        animation: left 1.2s .2s 3 linear forwards;
+        animation: left 1.2s .2s infinite linear forwards;
       }
 
       .icon {
-        background: url("../images/car-type-tab-jiaoche-active.png") no-repeat center center;
+        background: url("../images/car-model-tab-jiaoche-active.png") no-repeat center center;
       }
     }
   }
 
-  &.jiaoche {
+  &.car {
     .item {
-      .icon { background: url("../images/car-type-tab-jiaoche.png") no-repeat center center; }
+      .icon { background: url("../images/car-model-tab-jiaoche.png") no-repeat center center; }
 
       &.active {
         .icon {
-          background: url("../images/car-type-tab-jiaoche-active.png") no-repeat center center;
+          background: url("../images/car-model-tab-jiaoche-active.png") no-repeat center center;
         }
       }
     }
   }
 
-  &.haohua {
+  &.luxury {
     .item {
-      .icon { background: url("../images/car-type-tab-haohua.png") no-repeat center center; }
+      .icon { background: url("../images/car-model-tab-haohua.png") no-repeat center center; }
 
       &.active {
         .icon {
-          background: url("../images/car-type-tab-haohua-active.png") no-repeat center center;
+          background: url("../images/car-model-tab-haohua-active.png") no-repeat center center;
         }
       }
     }
@@ -191,14 +241,19 @@ $darkblue: #516a96;
 
   &.suv {
     .item {
-      .icon { background: url("../images/car-type-tab-suv.png") no-repeat center center; }
+      .icon { background: url("../images/car-model-tab-suv.png") no-repeat center center; }
 
       &.active {
         .icon {
-          background: url("../images/car-type-tab-suv-active.png") no-repeat center center;
+          background: url("../images/car-model-tab-suv-active.png") no-repeat center center;
         }
       }
     }
+  }
+
+  &.active {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
   }
 }
 
@@ -227,13 +282,65 @@ $darkblue: #516a96;
     top: 0;
     left: 14px;
     width: 2px;
-    height: 92px;
+    height: 0;
     background: #404057;
+    transition: all .6s;
+  }
+}
+
+.scene.active {
+  .line {
+    height: 92px;
+  }
+}
+
+//  hot dot
+.hotdot {
+  cursor: pointer;
+
+  &.car1 {
+    right: 923px;
+    bottom: 653px;
+  }
+  &.car2 {
+    right: 920px;
+    bottom: 653px;
+  }
+  &.car3 {
+    right: 946px;
+    bottom: 653px;
+  }
+
+  &.suv1 {
+    right: 950px;
+    bottom: 672px;
+  }
+  &.suv2 {
+    right: 958px;
+    bottom: 709px;
+  }
+  &.suv3 {
+    right: 940px;
+    bottom: 709px;
+  }
+
+  &.luxury1 {
+    right: 938px;
+    bottom: 646px;
+  }
+  &.luxury2 {
+    right: 923px;
+    bottom: 656px;
+  }
+  &.luxury3 {
+    right: 954px;
+    bottom: 676px;
   }
 }
 
 //  dot
 .dot {
+  position: absolute;
   right: -34px;
   top: 16px;
   width: 16px;
@@ -241,6 +348,7 @@ $darkblue: #516a96;
   padding: 6px 0 0 6px;
   background: rgba(216, 111, 68, .38);
   border-radius: 100%;
+  animation: breath 2s infinite;
 
   .dot-bd {
     width: 9px;
@@ -250,20 +358,62 @@ $darkblue: #516a96;
   }
 }
 
+//  background
+.background {
+  position: absolute;
+  @extend .full-size;
+  background-color: #080929;
+  background-size: cover;
+  transition: all .6s;
+
+  &.s01 {
+    background-image: url("../images/s01-bg.jpg") ;
+  }
+
+  &.s02, &.s03, &.s04 {
+    background-image: url("../images/car-bg.jpg") ;
+  }
+
+  &.s05, &.s06 {
+    background-image: url("../images/map-bg.jpg") ;
+  }
+}
+
+.full-car {
+  position: absolute;
+  @extend .full-size;
+  transition: all .6s;
+
+  &.car1 { background: url("../images/car-main-car01.png") no-repeat; }
+  &.car2 { background: url("../images/car-main-car02.png") no-repeat; }
+  &.car3 { background: url("../images/car-main-car03.png") no-repeat; }
+
+  &.luxury1 { background: url("../images/car-main-luxury01.png") no-repeat; }
+  &.luxury2 { background: url("../images/car-main-luxury02.png") no-repeat; }
+  &.luxury3 { background: url("../images/car-main-luxury03.png") no-repeat; }
+
+  &.suv1 { background: url("../images/car-main-suv01.png") no-repeat; }
+  &.suv2 { background: url("../images/car-main-suv02.png") no-repeat; }
+  &.suv3 { background: url("../images/car-main-suv03.png") no-repeat; }
+}
+
 /*======================================================================
       Scenes
   ======================================================================*/
 //  scene
 .scene {
   @extend .full-size;
-  position: fixed;
+  position: absolute;
+  z-index: 10;
 
   background-size: cover;
 }
 
 //  scene01
 .scene01 {
-  background-image: url("../images/s01-bg.jpg") ;
+  $preDelay: 3s;
+  $duration: 1s;
+  $transitionDelay: .6s;
 
   .scene-bd {
 
@@ -294,9 +444,18 @@ $darkblue: #516a96;
     line-height: 0;
     top: 260px;
 
+    .img01 {
+      opacity: 0;
+      transform: translate3d(0, 10px, 0);
+      transition: all $duration $preDelay;
+    }
+
     .img02 {
       display: inline-block;
       margin-top: 16px;
+      opacity: 0;
+      transform: translate3d(0, 10px, 0);
+      transition: all $duration ($transitionDelay*1+$preDelay);
     }
   }
 
@@ -307,6 +466,9 @@ $darkblue: #516a96;
     margin-left: 318px;
     font-size: 24px;
     text-indent: 2em;
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    transition: all $duration ($transitionDelay*2+$preDelay);
 
     strong {
       font-weight: normal;
@@ -319,7 +481,8 @@ $darkblue: #516a96;
     top: 675px;
     text-align: center;
 
-    a {
+    .item {
+      opacity: 0;
       display: inline-block;
       width: 145px;
       height: 145px;
@@ -327,6 +490,7 @@ $darkblue: #516a96;
       background: no-repeat;
       background-size: cover;
       font-size: 0;
+      cursor: pointer;
     }
 
     .item01 { background-image: url("../images/s01-entry01.png"); }
@@ -335,26 +499,67 @@ $darkblue: #516a96;
     .item04 { background-image: url("../images/s01-entry04.png"); }
     .item05 { background-image: url("../images/s01-entry05.png"); }
   }
+
+  &.active {
+    .logo {
+      .img01, .img02 {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+    }
+
+    .description {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+
+    $duration: .6s;
+    $delay: .3s;
+    .item01 { animation: bounceInUp $duration (.8s + $delay*1) forwards; }
+    .item02 { animation: bounceInUp $duration (.8s + $delay*1.5) forwards; }
+    .item03 { animation: bounceInUp $duration (.8s + $delay*2) forwards; }
+    .item04 { animation: bounceInUp $duration (.8s + $delay*2.5) forwards; }
+    .item05 { animation: bounceInUp $duration (.8s + $delay*3) forwards; }
+  }
+
+  @-webkit-keyframes bounceInUp {
+    from, 60%, 75%, 90%, to {
+      -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 30px, 0);
+      transform: translate3d(0, 30px, 0);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
 
 //  scene02
 .scene02 {
-  background-image: url("../images/s02-bg.jpg") ;
-
   .title {
     top: 170px;
     left: 85px;
 
     .item01 {
-      width: 131px;
+      width: 0;
       height: 38px;
       overflow: hidden;
+      transition: all .45s;
     }
 
     .item02 {
       overflow: hidden;
-      height: 38px;
+      height: 0;
       left: 140px;
+      transition: all .45s;
     }
   }
 
@@ -406,12 +611,6 @@ $darkblue: #516a96;
     width: 972px;
     height: 807px;
 
-    .hotdot {
-      top: 156px;
-      left: 254px;
-      cursor: pointer;
-    }
-
     .description {
       position: absolute;
       top: 600px;
@@ -428,18 +627,24 @@ $darkblue: #516a96;
         color: $orange;
       }
     }
-
-    .img {
-      width: 100%;
-      height: 100%;
-      background: url("../images/suv-01.jpg") no-repeat;
-    }
   }
 
   .car-type-select {
     position: absolute;
     top: 676px;
     left: 1648px;
+  }
+
+  &.active {
+    .title {
+      .item01 {
+        width: 131px;
+      }
+
+      .item02 {
+        height: 38px;
+      }
+    }
   }
 }
 
@@ -456,8 +661,6 @@ $darkblue: #516a96;
   }
 
   .hotdot {
-    top: 309px;
-    left: 866px;
     cursor: pointer;
 
     .qrcode {
@@ -484,18 +687,29 @@ $darkblue: #516a96;
     left: 152px;
     top: 116px;
 
+    $delay: 2s;
+    $duration: .6s;
+
     .item {
+      opacity: 0;
       width: 150px;
       overflow: hidden;
       margin-bottom: 27px;
+      transform: translate3d(-30px, 0, 0);
+    }
+
+    .item01 {
+      transition: transform $duration $delay;
     }
 
     .item02 {
       margin-left: 22px;
+      transition: transform $duration $delay*1.25;
     }
 
     .item03 {
       margin-left: 44px;
+      transition: transform $duration $delay*1.5;
     }
 
     .radio {
@@ -510,6 +724,13 @@ $darkblue: #516a96;
       img {
         display: block;
       }
+    }
+  }
+
+  &.active {
+    .model-select .item {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
     }
   }
 
@@ -576,6 +797,7 @@ $darkblue: #516a96;
     bottom: 11px;
     height: 11px;
     background: url("../images/icon-triangle-down.png") no-repeat center center;
+    animation: breath 1s infinite;
   }
 
   // car
@@ -693,9 +915,6 @@ $darkblue: #516a96;
 
 // scene05
 .scene05 {
-  background: url("../images/s05-bg.jpg");
-  background-size: cover;
-
   .title {
     left: 62px;
     top: 116px;
@@ -742,6 +961,18 @@ $darkblue: #516a96;
     }
   }
 
+  .map {
+    top: 165px;
+    left: 643px;
+  }
+}
+
+//  scene05 经销商查询 select
+.dealer-query-select {
+  opacity: 0;
+  transform: translate3d(0, 1000, 0);
+  transition: opacity .6s;
+
   .province {
     top: 787px;
     left:1212px;
@@ -757,17 +988,14 @@ $darkblue: #516a96;
     left: (1212+214*2)*1px;
   }
 
-  .map {
-    top: 165px;
-    left: 643px;
+  &.active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
 // scene06
 .scene06 {
-  background: url("../images/s05-bg.jpg");
-  background-size: cover;
-
   .title {
     left: 75px;
     top: 112px;
@@ -854,6 +1082,10 @@ $darkblue: #516a96;
   &.active {
     z-index: 1000;
 
+    .icon {
+      transform: rotate(180deg);
+    }
+
     .select-bd {
       display: block;
     }
@@ -875,6 +1107,8 @@ $darkblue: #516a96;
     width: 17px;
     height: 10px;
     background: url("../images/icon-triangle-down.png") no-repeat;
+    transition:  all .3s;
+    transform-origin: center center;
   }
 }
 
@@ -975,3 +1209,20 @@ $darkblue: #516a96;
     transform: translate3d(-5px, 0, 0);
   }
 }
+
+@keyframes breath {
+  from {
+    opacity: 0;
+  }
+
+  40%, 60% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+
