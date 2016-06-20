@@ -457,7 +457,7 @@ $globalDelay: .2s;
 }
 .leftInActive {
   opacity: 1;
-  transition: all 1s $globalDelay;
+  transition: opacity 1s $globalDelay, transform 1s $globalDelay;
   transform: translate3d(0, 0, 0);
 }
 
@@ -467,7 +467,7 @@ $globalDelay: .2s;
 }
 .downInActive {
   opacity: 1;
-  transition: all 1s $globalDelay;
+  transition: opacity 1s $globalDelay, transform 1s $globalDelay;
   transform: translate3d(0, 0, 0);
 }
 
@@ -1014,7 +1014,7 @@ $globalDelay: .2s;
     border: none;
     @extend .leftIn;
 
-    &:hover {
+    &:active {
       background: url("../images/btn-submit-active.png") no-repeat;
     }
   }
@@ -1424,14 +1424,15 @@ $globalDelay: .2s;
 
 // input
 .input {
-  width: 170px;
-  height: 55px;
-  padding: 0 22px;
-  line-height: 55px;
-  background: url("../images/select-hd-bg.png") no-repeat;
+  width: 181px;
+  height: 43px;
+  padding: 10px 22px;
+  line-height: 43px;
+  background: url("../images/select-hd-bg.png") no-repeat 4px 4px;
   border: none;
   color: $darkblue;
   font-size: 18px;
+  transition: background .2s;
 
   &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    $darkblue;
@@ -1446,6 +1447,10 @@ $globalDelay: .2s;
   }
   &:-ms-input-placeholder { /* Internet Explorer 10-11 */
     color:    $darkblue;
+  }
+
+  &:focus {
+    background: url('../images/input-bg-active.png') no-repeat;
   }
 }
 

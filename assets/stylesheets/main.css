@@ -449,8 +449,10 @@ input {
 
 .leftInActive, .scene02.active .title, .scene02.active .person, .scene03.active .panel, .scene04.active .title, .scene04.active .person-info, .scene04.active .select-car-model, .scene04.active .select-dealer, .scene04.active .buyer-plan, .scene04.active .submit, .scene05.active .panel, .scene06.active .title, .scene06.active .panel {
   opacity: 1;
-  -webkit-transition: all 1s 0.2s;
-  transition: all 1s 0.2s;
+  -webkit-transition: opacity 1s 0.2s, -webkit-transform 1s 0.2s;
+  transition: opacity 1s 0.2s, -webkit-transform 1s 0.2s;
+  transition: opacity 1s 0.2s, transform 1s 0.2s;
+  transition: opacity 1s 0.2s, transform 1s 0.2s, -webkit-transform 1s 0.2s;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
@@ -463,8 +465,10 @@ input {
 
 .downInActive, .full-car.shadow .bd, .dealer-query-select.active .select {
   opacity: 1;
-  -webkit-transition: all 1s 0.2s;
-  transition: all 1s 0.2s;
+  -webkit-transition: opacity 1s 0.2s, -webkit-transform 1s 0.2s;
+  transition: opacity 1s 0.2s, -webkit-transform 1s 0.2s;
+  transition: opacity 1s 0.2s, transform 1s 0.2s;
+  transition: opacity 1s 0.2s, transform 1s 0.2s, -webkit-transform 1s 0.2s;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
@@ -947,7 +951,7 @@ input {
   cursor: pointer;
   border: none;
 }
-.scene04 .submit:hover {
+.scene04 .submit:active {
   background: url("../images/btn-submit-active.png") no-repeat;
 }
 
@@ -1259,14 +1263,16 @@ input {
 }
 
 .input {
-  width: 170px;
-  height: 55px;
-  padding: 0 22px;
-  line-height: 55px;
-  background: url("../images/select-hd-bg.png") no-repeat;
+  width: 181px;
+  height: 43px;
+  padding: 10px 22px;
+  line-height: 43px;
+  background: url("../images/select-hd-bg.png") no-repeat 4px 4px;
   border: none;
   color: #516a96;
   font-size: 18px;
+  -webkit-transition: background .2s;
+  transition: background .2s;
 }
 .input::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
@@ -1285,6 +1291,9 @@ input {
 .input:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #516a96;
+}
+.input:focus {
+  background: url("../images/input-bg-active.png") no-repeat;
 }
 
 /*======================================================================
