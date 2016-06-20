@@ -548,6 +548,8 @@ $globalDelay: .2s;
     }
   }
 
+  $circleRadius: 446px;
+
   .entry-list {
     @extend .full-size;
     top: 675px;
@@ -563,6 +565,23 @@ $globalDelay: .2s;
       background-size: cover;
       font-size: 0;
       cursor: pointer;
+
+      &.loading {
+        .svg .bar {
+          stroke-dashoffset: 0;
+          transition: stroke-dashoffset .6s ease-in;
+        }
+      }
+    }
+
+    .svg circle {
+      stroke-dashoffset: 0;
+      stroke: #fff;
+      stroke-width: 2px;
+    }
+    .svg .bar {
+      stroke: #d76f44;
+      stroke-dashoffset: $circleRadius;
     }
 
     .item01 { background-image: url("../images/s01-entry01.png"); }
@@ -606,6 +625,16 @@ $globalDelay: .2s;
     .item03 { animation: bounceInUp $duration (2.5s + $delay*2) forwards; }
     .item04 { animation: bounceInUp $duration (2.5s + $delay*2.5) forwards; }
     .item05 { animation: bounceInUp $duration (2.5s + $delay*3) forwards; }
+
+    .svg .bar {
+      transition: stroke-dashoffset 1.2s ease-out;
+    }
+
+    .item01 .bar { stroke-dashoffset: $circleRadius*.5; transition-delay: (2.5s + $delay*3); transform: rotate(20deg); transform-origin: center center;}
+    .item02 .bar { stroke-dashoffset: $circleRadius*.2; transition-delay: (2.5s + $delay*3); transform: rotate(-90deg); transform-origin: center center; }
+    .item03 .bar { stroke-dashoffset: $circleRadius*.75; transition-delay: (2.5s + $delay*3); transform: rotate(-90deg); transform-origin: center center; }
+    .item04 .bar { stroke-dashoffset: $circleRadius*.45; transition-delay: (2.5s + $delay*3); transform: rotate(-120deg); transform-origin: center center; }
+    .item05 .bar { stroke-dashoffset: $circleRadius*.2; transition-delay: (2.5s + $delay*3); transform: rotate(160deg); transform-origin: center center; }
   }
 
   @keyframes bounceInUp {
@@ -721,6 +750,7 @@ $globalDelay: .2s;
     position: absolute;
     top: 676px;
     left: 1648px;
+    @extend .downIn;
   }
 
   &.active {
@@ -740,6 +770,10 @@ $globalDelay: .2s;
     .person {
       opacity: 1;
 	  @extend .leftInActive;
+    }
+
+    .car-type-select {
+      @extend .downInActive;
     }
   }
 }
@@ -839,7 +873,9 @@ $globalDelay: .2s;
   }
 
   .panel-bd-item {
-    position: relative;
+    position: absolute;
+    top: 60px;
+    left: 0;
     width: 440px;
     height: 563px;
     padding-top: 21px;
@@ -873,6 +909,30 @@ $globalDelay: .2s;
         font-weight: normal;
       }
     }
+
+    &.active {
+      z-index: 10;
+
+      .triangle {
+        animation: breath 1s .6s infinite;
+      }
+    }
+
+    &.hide {
+      opacity: 0;
+    }
+
+    transition: transform 1s;
+  }
+
+  .panel-bd-item.behind {
+    transform: translate3d(25px, 30px, 0);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    opacity: .2;
   }
 
   .wrap {
@@ -891,13 +951,17 @@ $globalDelay: .2s;
     right: 0;
     bottom: 11px;
     height: 11px;
+    opacity: 0;
     background: url("../images/icon-triangle-down.png") no-repeat center center;
-    animation: breath 1s infinite;
   }
 
   // car
   .car {
     @extend .full-size;
+  }
+
+  .select {
+    @extend .downIn;
   }
 
   .car-type-select {
@@ -915,6 +979,10 @@ $globalDelay: .2s;
   }
 
   &.active {
+    .select {
+      @extend .downInActive;
+    }
+
     .model-select .item {
       opacity: 1;
       transform: translate3d(0, 0, 0);

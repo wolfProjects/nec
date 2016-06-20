@@ -106,6 +106,114 @@ var DATA = {
                 'title': '整车质保',
                 'body': '三年或10万公里'
             }
+        ],
+        [
+            {
+                'title': '厂商指导价',
+                'body': '81.68万'
+            },
+            {
+                'title': '级别',
+                'body': '中型车'
+            },
+            {
+                'title': '发动机',
+                'body': '1.8T 160马力 L4'
+            },
+            {
+                'title': '变速箱',
+                'body': '6档手动'
+            },
+            {
+                'title': '长*宽*高(mm)',
+                'body': '4761*1826*1439'
+            },
+            {
+                'title': '车身结构',
+                'body': '4门5座三厢车'
+            },
+            {
+                'title': '最高车速(km/h)',
+                'body': '220'
+            },
+            {
+                'title': '官方0-100km加速(s)',
+                'body': '8.3'
+            },
+            {
+                'title': '整车质保',
+                'body': '三年或10万公里'
+            },
+            {
+                'title': '车身结构',
+                'body': '4门5座三厢车'
+            },
+            {
+                'title': '最高车速(km/h)',
+                'body': '220'
+            },
+            {
+                'title': '官方0-100km加速(s)',
+                'body': '8.3'
+            },
+            {
+                'title': '整车质保',
+                'body': '三年或10万公里'
+            }
+        ],
+        [
+            {
+                'title': '厂商指导价',
+                'body': '213.68万'
+            },
+            {
+                'title': '级别',
+                'body': '中型车'
+            },
+            {
+                'title': '发动机',
+                'body': '1.8T 160马力 L4'
+            },
+            {
+                'title': '变速箱',
+                'body': '6档手动'
+            },
+            {
+                'title': '长*宽*高(mm)',
+                'body': '4761*1826*1439'
+            },
+            {
+                'title': '车身结构',
+                'body': '4门5座三厢车'
+            },
+            {
+                'title': '最高车速(km/h)',
+                'body': '220'
+            },
+            {
+                'title': '官方0-100km加速(s)',
+                'body': '8.3'
+            },
+            {
+                'title': '整车质保',
+                'body': '三年或10万公里'
+            },
+            {
+                'title': '车身结构',
+                'body': '4门5座三厢车'
+            },
+            {
+                'title': '最高车速(km/h)',
+                'body': '220'
+            },
+            {
+                'title': '官方0-100km加速(s)',
+                'body': '8.3'
+            },
+            {
+                'title': '整车质保',
+                'body': '三年或10万公里'
+            }
         ]
     ],
     carType: {
@@ -261,6 +369,13 @@ var app = {
 
             //  更新 全尺寸车图
             $('.full-car').removeClass($('.full-car').attr('class').replace(/full-car|shadow|comparison/g, '')).addClass(carType + '1');
+
+            //  更新 车型选择 配置信息面板
+            if ($('.scene03').hasClass('active')) {
+                $('.model-select .item:first .radio').addClass('active').parents('.item').siblings().find('.radio').removeClass('active');
+                $('.scene03 .panel-bd-item').eq(0).removeClass('behind').addClass('active')
+                    .siblings().removeClass('active').addClass('behind');
+            }
         }
     },
 
@@ -288,92 +403,108 @@ var app = {
         //  首页导航
         $('.entry-list .item').click(function () {
             var index = $(this).index()+1;
-            init(index+1, 'entry');
+            init(index+1, 'entry', $(this));
         });
 
-        function init (index, type) {
+        var isFreeze = false;
+        function init (index, type, curTarget) {
+            if (isFreeze) return;
+
             var CAR_DATA = DATA.carType;
             var carType = $('.car-type-select').attr('data-value');
 
-            //  给当前场景加上 active 状态
-            var curScene = $('.scene0' + index);
-            curScene.siblings('.scene').hide().removeClass('active');
-            curScene.show();
-            setTimeout(function () {
-                //  延迟添加 active 状态 来修复 transition 瞬间完成 BUG
-                curScene.addClass('active');
-            },10);
-
-            //  当进入 Home 页时 隐藏公共 logo
-            if (index == 1 && type == 'nav') {
-                $('.nav, .logo-common').fadeOut();
+            if (type == 'entry') {
+                isFreeze = true;
+                curTarget.addClass('loading');
+                setTimeout(doing, 900);
             } else {
-                $('.nav, .logo-common').fadeIn();
-                //  给当前菜单加上 active 状态
-                $('.nav').addClass('nav0' + index).removeClass('nav01 nav02 nav03 nav04 nav05 nav06'.replace('nav0' + index, ''));
+                doing();
             }
 
-            //  车型选择切换卡 where scene02,03,04
-            if (index == 2 || index == 3 || index == 4) {
-                $('.car-model-tab').addClass('active');
-                $('.full-car').fadeIn();
-            } else {
-                $('.car-model-tab').removeClass('active');
-                $('.full-car').hide();
-            }
+            function doing () {
+                isFreeze = false;
+                $('.entry-list .item').removeClass('loading');
 
-            //  汽车阴影
-            if (index == 4) {
-                $('.full-car').addClass('shadow comparison');
-                $('.hotdot').addClass('transform');
-            } else {
-                $('.full-car').removeClass('shadow comparison');
-                $('.hotdot').removeClass('transform');
-            }
-
-            //  地图 模拟加载
-            if (index == 5 || index == 6) {
+                //  给当前场景加上 active 状态
+                var curScene = $('.scene0' + index);
+                curScene.siblings('.scene').hide().removeClass('active');
+                curScene.show();
                 setTimeout(function () {
-                    $('.map').addClass('finished');
-                }, 1000);
-            } else {
-                $('.map').removeClass('finished');
-            }
+                    //  延迟添加 active 状态 来修复 transition 瞬间完成 BUG
+                    curScene.addClass('active');
+                },10);
 
-            //  车类介绍 typed 效果
-            if (index == 2) {
-                $(".scene02 .description").typed('reset');
-                $(".scene02 .car").empty().append('<div class="description"></div>');
-                $(".scene02 .description").typed({
-                    strings: [CAR_DATA[carType].description],
-                    contentType: 'html', // or 'text'
-                    showCursor: false,
-                    startDelay: 1200
-                });
-            }
+                //  当进入 Home 页时 隐藏公共 logo
+                if (index == 1 && type == 'nav') {
+                    $('.nav, .logo-common').fadeOut();
+                } else {
+                    $('.nav, .logo-common').fadeIn();
+                    //  给当前菜单加上 active 状态
+                    $('.nav').addClass('nav0' + index).removeClass('nav01 nav02 nav03 nav04 nav05 nav06'.replace('nav0' + index, ''));
+                }
 
-            //  热点
-            $('.hotdot').hide();
+                //  车型选择切换卡 where scene02,03,04
+                if (index == 2 || index == 3 || index == 4) {
+                    $('.car-model-tab').addClass('active');
+                    $('.full-car').fadeIn();
+                } else {
+                    $('.car-model-tab').removeClass('active');
+                    $('.full-car').hide();
+                }
 
-            setTimeout(function () {
-                $('.hotdot').fadeIn();
-            }, 600);
+                //  汽车阴影
+                if (index == 4) {
+                    $('.full-car').addClass('shadow comparison');
+                    $('.hotdot').addClass('transform');
+                } else {
+                    $('.full-car').removeClass('shadow comparison');
+                    $('.hotdot').removeClass('transform');
+                }
 
-            //  背景图
-            if (index == 1) $('.background').attr('class', 'background').addClass('s01');
-            if (index == 2) $('.background').attr('class', 'background').addClass('s02');
-            if (index == 3) $('.background').attr('class', 'background').addClass('s03');
-            if (index == 4) $('.background').attr('class', 'background').addClass('s04');
-            if (index == 5 || index == 6 ) $('.background').attr('class', 'background').addClass('s05');
+                //  地图 模拟加载
+                if (index == 5 || index == 6) {
+                    setTimeout(function () {
+                        $('.map').addClass('finished');
+                    }, 1000);
+                } else {
+                    $('.map').removeClass('finished');
+                }
 
-            //  经销商查询出现 where scene05
-            if (index == 5) {
-                $('.dealer-query-select').show();
+                //  车类介绍 typed 效果
+                if (index == 2) {
+                    $(".scene02 .description").typed('reset');
+                    $(".scene02 .car").empty().append('<div class="description"></div>');
+                    $(".scene02 .description").typed({
+                        strings: [CAR_DATA[carType].description],
+                        contentType: 'html', // or 'text'
+                        showCursor: false,
+                        startDelay: 1200
+                    });
+                }
+
+                //  热点
+                $('.hotdot').hide();
+
                 setTimeout(function () {
-                    $('.dealer-query-select').addClass('active')
-                }, 10);
-            } else {
-                $('.dealer-query-select').hide().removeClass('active');
+                    $('.hotdot').fadeIn();
+                }, 600);
+
+                //  背景图
+                if (index == 1) $('.background').attr('class', 'background').addClass('s01');
+                if (index == 2) $('.background').attr('class', 'background').addClass('s02');
+                if (index == 3) $('.background').attr('class', 'background').addClass('s03');
+                if (index == 4) $('.background').attr('class', 'background').addClass('s04');
+                if (index == 5 || index == 6 ) $('.background').attr('class', 'background').addClass('s05');
+
+                //  经销商查询出现 where scene05
+                if (index == 5) {
+                    $('.dealer-query-select').show();
+                    setTimeout(function () {
+                        $('.dealer-query-select').addClass('active')
+                    }, 10);
+                } else {
+                    $('.dealer-query-select').hide().removeClass('active');
+                }
             }
         }
     },
@@ -392,13 +523,18 @@ var app = {
     scene03: function () {
         //  车型选择 radio 点击效果
         $('.model-select .radio').click(function () {
+            var index = $(this).parents('.item').index();
             $(this).addClass('active').parents('.item').siblings().find('.radio').removeClass('active');
+
+            //  配置信息面板 切牌效果
+            $('.scene03 .panel-bd-item').eq(index).removeClass('behind').addClass('active')
+                .siblings().removeClass('active').addClass('behind');
         });
 
         //  车型参数 模拟数据测试
         var modelInfo = DATA.model;
 
-        modelInfo.forEach(function (model) {
+        modelInfo.forEach(function (model, index) {
            var dom = '';
 
            model.forEach(function (item) {
@@ -414,7 +550,7 @@ var app = {
                dom += '<p class="bd">' + body + '</p>';
                dom += '</div>';
            });
-           $('.panel-bd-item .body').append($(dom));
+           $('.panel-bd-item:eq(' + index + ') .body').append($(dom));
         });
 
         //  二维码按钮
