@@ -160,6 +160,10 @@ var app = {
             var carType = $(this).attr('data-value');
             var carTypeSelect = $('.car-type-select');
 
+            //  update select
+            $('.car-type-select .select-hd span').text($(this).text());
+            $('.car-type-select').attr('data-value', carType);
+
             if (carTypeSelect.hasClass(carType)) return;
             carTypeSelect.attr('data-value', carType);
 
@@ -214,13 +218,14 @@ var app = {
         $('.car-model-tab').on('click', '.item', function (e) {
             e.stopPropagation();
             var carType = $('.car-type-select').attr('data-value');
+            $(this).parents('.car-model-tab').attr('data-value', $(this).attr('data-value'));
             $(this).addClass('active').siblings().removeClass('active');
 
             //  更新 车型选择 select
             $('.car-model-select .select-bd .item').eq($(this).index())[0].click();
 
             //  更新 车型全尺寸图
-            $('.full-car').removeClass($('.full-car').attr('class').replace(/full-car||shadow||comparision/g, '')).addClass(carType + ($(this).index()+1));
+            $('.full-car').removeClass($('.full-car').attr('class').replace(/full-car|shadow|comparison/g, '')).addClass(carType + ($(this).index()+1));
         });
 
         function resetCarTypeSelect (carType) {
@@ -255,7 +260,7 @@ var app = {
             $('.car-model-select .select-bd .bd').append($(dom));
 
             //  更新 全尺寸车图
-            $('.full-car').removeClass($('.full-car').attr('class').replace(/full-car||shadow||comparision/g, '')).addClass(carType + '1');
+            $('.full-car').removeClass($('.full-car').attr('class').replace(/full-car|shadow|comparison/g, '')).addClass(carType + '1');
         }
     },
 
@@ -318,7 +323,7 @@ var app = {
             }
 
             //  汽车阴影
-            if (index == 3 || index == 4) {
+            if (index == 4) {
                 $('.full-car').addClass('shadow comparison');
                 $('.hotdot').addClass('transform');
             } else {
@@ -376,8 +381,7 @@ var app = {
     scene01: function () {
         //  进入第二屏
         $('.btn-close').click(function () {
-            $('.scene01').fadeOut();
-            $('.scene02, .car-model-tab').fadeIn();
+            $('.entry-list .item01').click();
         });
     },
 

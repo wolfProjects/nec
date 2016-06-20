@@ -43,7 +43,7 @@ input {
   position: absolute !important;
 }
 
-.full-size, .background, .full-car, .scene, .scene01 .logo, .scene01 .entry-list, .scene03 .car, .scene04 .car {
+.full-size, .background, .full-car, .full-car .hd, .scene, .scene01 .logo, .scene01 .entry-list, .scene03 .car, .scene04 .car {
   top: 0;
   right: 0;
   bottom: 0;
@@ -184,7 +184,7 @@ input {
   left: 1720px;
   padding-top: 15px;
   -webkit-transition: all 1.2s 0.2s;
-          transition: all 1.2s 0.2s;
+  transition: all 1.2s 0.2s;
   -webkit-transform: translate3d(20px, 0, 0);
           transform: translate3d(20px, 0, 0);
   opacity: 0;
@@ -226,7 +226,7 @@ input {
   height: 100%;
   background: url("../images/car-model-tab-jiaoche.png") no-repeat center center;
   -webkit-transition: all .3s;
-          transition: all .3s;
+  transition: all .3s;
 }
 .car-model-tab .item.active {
   z-index: 10;
@@ -284,7 +284,7 @@ input {
   border: 1px solid #fff;
   opacity: 0;
   -webkit-transition: all 0.6s 0.2s;
-          transition: all 0.6s 0.2s;
+  transition: all 0.6s 0.2s;
   -webkit-transform: translate3d(10px, 0, 0);
           transform: translate3d(10px, 0, 0);
 }
@@ -295,7 +295,7 @@ input {
   height: 0;
   background: #404057;
   -webkit-transition: all 0.6s 0.2s;
-          transition: all 0.6s 0.2s;
+  transition: all 0.6s 0.2s;
 }
 
 .scene.active .circle {
@@ -383,7 +383,7 @@ input {
   background-image: url("../images/s02-bg-test.jpg");
 }
 .background.s03 {
-  background-image: url("../images/s02-bg.jpg");
+  background-image: url("../images/s02-bg-test.jpg");
 }
 .background.s04 {
   background-image: url("../images/s04-bg.jpg");
@@ -395,35 +395,40 @@ input {
 .full-car {
   display: none;
   position: absolute;
-  -webkit-transition: all .6s;
-          transition: all .6s;
 }
-.full-car.car1 {
+.full-car.car1 .hd {
   background: url("../images/car-main-car01.png") no-repeat;
 }
-.full-car.car2 {
+.full-car.car2 .hd {
   background: url("../images/car-main-car02.png") no-repeat;
 }
-.full-car.car3 {
+.full-car.car3 .hd {
   background: url("../images/car-main-car03.png") no-repeat;
 }
-.full-car.luxury1 {
+.full-car.luxury1 .hd {
   background: url("../images/car-main-luxury01.png") no-repeat;
 }
-.full-car.luxury2 {
+.full-car.luxury2 .hd {
   background: url("../images/car-main-luxury02.png") no-repeat;
 }
-.full-car.luxury3 {
+.full-car.luxury3 .hd {
   background: url("../images/car-main-luxury03.png") no-repeat;
 }
-.full-car.suv1 {
+.full-car.suv1 .hd {
   background: url("../images/car-main-suv01.png") no-repeat;
 }
-.full-car.suv2 {
+.full-car.suv2 .hd {
   background: url("../images/car-main-suv02.png") no-repeat;
 }
-.full-car.suv3 {
+.full-car.suv3 .hd {
   background: url("../images/car-main-suv03.png") no-repeat;
+}
+.full-car .hd {
+  position: absolute;
+  z-index: 10;
+  background-size: cover;
+  -webkit-transition: all .6s;
+  transition: all .6s;
 }
 .full-car .bd {
   opacity: 0;
@@ -432,34 +437,34 @@ input {
   background: url("../images/car-shadow.png") no-repeat;
   background-size: cover;
 }
-.full-car.comparison {
+.full-car.comparison .hd {
   background-position: 100px 100px;
 }
 
-.leftIn, .scene02 .title, .scene02 .person, .scene03 .panel, .scene04 .title, .scene05 .panel, .scene06 .title, .scene06 .panel {
+.leftIn, .scene02 .title, .scene02 .person, .scene03 .panel, .scene04 .title, .scene04 .person-info, .scene04 .select-car-model, .scene04 .select-dealer, .scene04 .buyer-plan, .scene04 .submit, .scene05 .panel, .scene06 .title, .scene06 .panel {
   opacity: 0;
   -webkit-transform: translate3d(-15px, 0, 0);
           transform: translate3d(-15px, 0, 0);
 }
 
-.leftInActive, .scene02.active .title, .scene02.active .person, .scene03.active .panel, .scene04.active .title, .scene05.active .panel, .scene06.active .title, .scene06.active .panel {
+.leftInActive, .scene02.active .title, .scene02.active .person, .scene03.active .panel, .scene04.active .title, .scene04.active .person-info, .scene04.active .select-car-model, .scene04.active .select-dealer, .scene04.active .buyer-plan, .scene04.active .submit, .scene05.active .panel, .scene06.active .title, .scene06.active .panel {
   opacity: 1;
   -webkit-transition: all 1s 0.2s;
-          transition: all 1s 0.2s;
+  transition: all 1s 0.2s;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
 
-.downIn, .full-car .bd, .scene04 .person-info, .scene04 .select-car-model, .scene04 .select-dealer, .scene04 .buyer-plan, .scene04 .submit, .dealer-query-select .select {
+.downIn, .full-car .bd, .dealer-query-select .select {
   opacity: 0;
   -webkit-transform: translate3d(0, 15px, 0);
           transform: translate3d(0, 15px, 0);
 }
 
-.downInActive, .full-car.shadow .bd, .scene04.active .person-info, .scene04.active .select-car-model, .scene04.active .select-dealer, .scene04.active .buyer-plan, .scene04.active .submit, .dealer-query-select.active .select {
+.downInActive, .full-car.shadow .bd, .dealer-query-select.active .select {
   opacity: 1;
   -webkit-transition: all 1s 0.2s;
-          transition: all 1s 0.2s;
+  transition: all 1s 0.2s;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
@@ -556,7 +561,7 @@ input {
 .scene01.active .time {
   opacity: 1;
   -webkit-transition: all .6s 3.6s;
-          transition: all .6s 3.6s;
+  transition: all .6s 3.6s;
 }
 .scene01.active .logo .img01, .scene01.active .logo .img02 {
   -webkit-transform: translate3d(0, 0, 0);
@@ -565,17 +570,17 @@ input {
 }
 .scene01.active .logo .img01 {
   -webkit-transition: all 1s 1s;
-          transition: all 1s 1s;
+  transition: all 1s 1s;
 }
 .scene01.active .logo .img02 {
   -webkit-transition: all 1s 1.6s;
-          transition: all 1s 1.6s;
+  transition: all 1s 1.6s;
 }
 .scene01.active .description {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   -webkit-transition: all 1s 2.2s;
-          transition: all 1s 2.2s;
+  transition: all 1s 2.2s;
   opacity: 1;
 }
 .scene01.active .item01 {
@@ -614,6 +619,22 @@ input {
     transform: translate3d(0, 0, 0);
   }
 }
+@keyframes bounceInUp {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 30px, 0);
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
 .scene02 .title {
   top: 170px;
   left: 85px;
@@ -623,14 +644,14 @@ input {
   height: 38px;
   overflow: hidden;
   -webkit-transition: all .45s;
-          transition: all .45s;
+  transition: all .45s;
 }
 .scene02 .title .item02 {
   overflow: hidden;
   height: 0;
   left: 140px;
   -webkit-transition: all .45s;
-          transition: all .45s;
+  transition: all .45s;
 }
 .scene02 .person {
   width: 485px;
@@ -732,7 +753,7 @@ input {
   padding: 15px;
   background: url("../images/qrcode-bg.png") no-repeat;
   -webkit-transition: all .3s;
-          transition: all .3s;
+  transition: all .3s;
   opacity: 0;
   -webkit-transform: translate3d(0, 5px, 0);
           transform: translate3d(0, 5px, 0);
@@ -754,7 +775,7 @@ input {
 }
 .scene03 .model-select .item01 {
   -webkit-transition: all 1.2s 0.2s;
-          transition: all 1.2s 0.2s;
+  transition: all 1.2s 0.2s;
   -webkit-transform: translate3d(-20px, 0, 0);
           transform: translate3d(-20px, 0, 0);
 }
@@ -763,14 +784,14 @@ input {
   -webkit-transform: translate3d(-42px, 0, 0);
           transform: translate3d(-42px, 0, 0);
   -webkit-transition: all 1.2s 0.24s;
-          transition: all 1.2s 0.24s;
+  transition: all 1.2s 0.24s;
 }
 .scene03 .model-select .item03 {
   margin-left: 44px;
   -webkit-transform: translate3d(-62px, 0, 0);
           transform: translate3d(-62px, 0, 0);
   -webkit-transition: all 1.2s 0.28s;
-          transition: all 1.2s 0.28s;
+  transition: all 1.2s 0.28s;
 }
 .scene03 .model-select .radio {
   float: left;
@@ -860,7 +881,7 @@ input {
 .scene03.active .title .item01, .scene03.active .title .item02 {
   width: 100%;
   -webkit-transition: all 0.6s 0.2s;
-          transition: all 0.6s 0.2s;
+  transition: all 0.6s 0.2s;
 }
 .scene03.active .panel {
   opacity: 1;
@@ -928,26 +949,6 @@ input {
 }
 .scene04 .submit:hover {
   background: url("../images/btn-submit-active.png") no-repeat;
-}
-.scene04.active .person-info {
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
-}
-.scene04.active .select-car-model {
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
-}
-.scene04.active .select-dealer {
-  -webkit-transition-delay: .4s;
-          transition-delay: .4s;
-}
-.scene04.active .buyer-plan {
-  -webkit-transition-delay: .6s;
-          transition-delay: .6s;
-}
-.scene04.active .submit {
-  -webkit-transition-delay: .8s;
-          transition-delay: .8s;
 }
 
 .scene05 .title {
@@ -1018,23 +1019,23 @@ input {
 .scene05 .map.finished .sk-wave {
   opacity: 0;
   -webkit-transition: all .6s;
-          transition: all .6s;
+  transition: all .6s;
 }
 .scene05 .map.finished .bd {
   opacity: 1;
   -webkit-transition: all .6s;
-          transition: all .6s;
+  transition: all .6s;
 }
 .scene05.active .sk-wave {
   opacity: 1;
   -webkit-transition: all .6s .2s;
-          transition: all .6s .2s;
+  transition: all .6s .2s;
 }
 .scene05.active .title .item {
   opacity: 1;
   width: 100%;
   -webkit-transition: all .6s .2s;
-          transition: all .6s .2s;
+  transition: all .6s .2s;
 }
 
 .dealer-query-select {
@@ -1045,7 +1046,7 @@ input {
   -webkit-transform: translate3d(0, 1000, 0);
           transform: translate3d(0, 1000, 0);
   -webkit-transition: opacity .6s;
-          transition: opacity .6s;
+  transition: opacity .6s;
 }
 .dealer-query-select .province {
   top: 787px;
@@ -1149,17 +1150,17 @@ input {
 .scene06 .map.finished .sk-wave {
   opacity: 0;
   -webkit-transition: all .6s;
-          transition: all .6s;
+  transition: all .6s;
 }
 .scene06 .map.finished .bd {
   opacity: 1;
   -webkit-transition: all .6s;
-          transition: all .6s;
+  transition: all .6s;
 }
 .scene06.active .sk-wave {
   opacity: 1;
   -webkit-transition: all .6s .2s;
-          transition: all .6s .2s;
+  transition: all .6s .2s;
 }
 
 /*======================================================================
@@ -1175,7 +1176,6 @@ input {
 }
 .select.active .icon {
   -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
           transform: rotate(180deg);
 }
 .select.active .select-bd {
@@ -1199,9 +1199,8 @@ input {
   height: 10px;
   background: url("../images/icon-triangle-down.png") no-repeat;
   -webkit-transition: all .3s;
-          transition: all .3s;
+  transition: all .3s;
   -webkit-transform-origin: center center;
-      -ms-transform-origin: center center;
           transform-origin: center center;
 }
 
@@ -1245,7 +1244,7 @@ input {
   height: 9px;
   background: url("../images/icon-plus.png") no-repeat;
   -webkit-transition: all .3s;
-          transition: all .3s;
+  transition: all .3s;
 }
 .radio .radio-bd {
   display: inline-block;

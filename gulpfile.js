@@ -86,8 +86,12 @@ gulp.task('watch', function() {
 
 /**  deploy tasks */
 //  #desc: Deploy project
-gulp.task('deploy', function () {
+gulp.task('foo', function () {
     runSequence('cleanDist', 'sass', 'concatCss', 'scripts', 'copyHtml', 'copyCss', 'copyScripts', 'copyImages', 'injector');
+});
+
+gulp.task('deploy', function () {
+    runSequence('cleanDist', 'sass', 'concatCss', 'scripts', 'copyHtml', 'copyCss', 'copyScripts', 'copyImages');
 });
 
 //  #desc: CleanDist
@@ -103,13 +107,13 @@ gulp.task('copyHtml', function () {
 
 //  #desc: Css -> Dist
 gulp.task('copyCss', function () {
-    return gulp.src([filePath.cssCompiled + '*.css', filePath.cssCompiled + filePath.maps + '*'], { base: filePath.cssCompiled })
+    return gulp.src([filePath.css + '*.css'], { base: filePath.cssCompiled })
         .pipe(gulp.dest(filePath.cssDist));
 });
 
 //  #desc: Js -> Dist
 gulp.task('copyScripts', function () {
-    return gulp.src([filePath.jsCompiled + 'app.js', filePath.jsCompiled + 'app.min.js', filePath.jsCompiled + filePath.maps + '*'], { base: filePath.jsCompiled })
+    return gulp.src([filePath.js + '*.js'], { base: filePath.jsCompiled })
         .pipe(gulp.dest(filePath.jsDist));
 });
 

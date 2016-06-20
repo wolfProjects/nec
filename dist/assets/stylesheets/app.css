@@ -50,6 +50,7 @@ input {
 .full-size,
 .background,
 .full-car,
+.full-car .hd,
 .scene,
 .scene01 .logo,
 .scene01 .entry-list,
@@ -451,7 +452,7 @@ input {
 }
 
 .background.s03 {
-  background-image: url("../images/s02-bg.jpg");
+  background-image: url("../images/s02-bg-test.jpg");
 }
 
 .background.s04 {
@@ -466,44 +467,50 @@ input {
 .full-car {
   display: none;
   position: absolute;
-  -webkit-transition: all .6s;
-  transition: all .6s;
 }
 
-.full-car.car1 {
+.full-car.car1 .hd {
   background: url("../images/car-main-car01.png") no-repeat;
 }
 
-.full-car.car2 {
+.full-car.car2 .hd {
   background: url("../images/car-main-car02.png") no-repeat;
 }
 
-.full-car.car3 {
+.full-car.car3 .hd {
   background: url("../images/car-main-car03.png") no-repeat;
 }
 
-.full-car.luxury1 {
+.full-car.luxury1 .hd {
   background: url("../images/car-main-luxury01.png") no-repeat;
 }
 
-.full-car.luxury2 {
+.full-car.luxury2 .hd {
   background: url("../images/car-main-luxury02.png") no-repeat;
 }
 
-.full-car.luxury3 {
+.full-car.luxury3 .hd {
   background: url("../images/car-main-luxury03.png") no-repeat;
 }
 
-.full-car.suv1 {
+.full-car.suv1 .hd {
   background: url("../images/car-main-suv01.png") no-repeat;
 }
 
-.full-car.suv2 {
+.full-car.suv2 .hd {
   background: url("../images/car-main-suv02.png") no-repeat;
 }
 
-.full-car.suv3 {
+.full-car.suv3 .hd {
   background: url("../images/car-main-suv03.png") no-repeat;
+}
+
+.full-car .hd {
+  position: absolute;
+  z-index: 10;
+  background-size: cover;
+  -webkit-transition: all .6s;
+  transition: all .6s;
 }
 
 .full-car .bd {
@@ -514,7 +521,7 @@ input {
   background-size: cover;
 }
 
-.full-car.comparison {
+.full-car.comparison .hd {
   background-position: 100px 100px;
 }
 
@@ -523,6 +530,11 @@ input {
 .scene02 .person,
 .scene03 .panel,
 .scene04 .title,
+.scene04 .person-info,
+.scene04 .select-car-model,
+.scene04 .select-dealer,
+.scene04 .buyer-plan,
+.scene04 .submit,
 .scene05 .panel,
 .scene06 .title,
 .scene06 .panel {
@@ -536,6 +548,11 @@ input {
 .scene02.active .person,
 .scene03.active .panel,
 .scene04.active .title,
+.scene04.active .person-info,
+.scene04.active .select-car-model,
+.scene04.active .select-dealer,
+.scene04.active .buyer-plan,
+.scene04.active .submit,
 .scene05.active .panel,
 .scene06.active .title,
 .scene06.active .panel {
@@ -548,11 +565,6 @@ input {
 
 .downIn,
 .full-car .bd,
-.scene04 .person-info,
-.scene04 .select-car-model,
-.scene04 .select-dealer,
-.scene04 .buyer-plan,
-.scene04 .submit,
 .dealer-query-select .select {
   opacity: 0;
   -webkit-transform: translate3d(0, 15px, 0);
@@ -561,11 +573,6 @@ input {
 
 .downInActive,
 .full-car.shadow .bd,
-.scene04.active .person-info,
-.scene04.active .select-car-model,
-.scene04.active .select-dealer,
-.scene04.active .buyer-plan,
-.scene04.active .submit,
 .dealer-query-select.active .select {
   opacity: 1;
   -webkit-transition: all 1s 0.2s;
@@ -735,6 +742,25 @@ input {
 }
 
 @-webkit-keyframes bounceInUp {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 30px, 0);
+    transform: translate3d(0, 30px, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bounceInUp {
   from, 60%, 75%, 90%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -1127,31 +1153,6 @@ input {
   background: url("../images/btn-submit-active.png") no-repeat;
 }
 
-.scene04.active .person-info {
-  -webkit-transition-delay: .2s;
-  transition-delay: .2s;
-}
-
-.scene04.active .select-car-model {
-  -webkit-transition-delay: .2s;
-  transition-delay: .2s;
-}
-
-.scene04.active .select-dealer {
-  -webkit-transition-delay: .4s;
-  transition-delay: .4s;
-}
-
-.scene04.active .buyer-plan {
-  -webkit-transition-delay: .6s;
-  transition-delay: .6s;
-}
-
-.scene04.active .submit {
-  -webkit-transition-delay: .8s;
-  transition-delay: .8s;
-}
-
 .scene05 .title {
   left: 62px;
   top: 116px;
@@ -1415,7 +1416,6 @@ input {
 
 .select.active .icon {
   -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
@@ -1443,7 +1443,6 @@ input {
   -webkit-transition: all .3s;
   transition: all .3s;
   -webkit-transform-origin: center center;
-  -ms-transform-origin: center center;
   transform-origin: center center;
 }
 

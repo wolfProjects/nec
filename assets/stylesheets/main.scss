@@ -393,7 +393,7 @@ $globalDelay: .2s;
   }
 
   &.s03 {
-    background-image: url("../images/s02-bg.jpg") ;
+    background-image: url("../images/s02-bg-test.jpg") ;
   }
 
   &.s04 {
@@ -409,19 +409,26 @@ $globalDelay: .2s;
   display: none;
   position: absolute;
   @extend .full-size;
-  transition: all .6s;
 
-  &.car1 { background: url("../images/car-main-car01.png") no-repeat; }
-  &.car2 { background: url("../images/car-main-car02.png") no-repeat; }
-  &.car3 { background: url("../images/car-main-car03.png") no-repeat; }
+  &.car1 .hd { background: url("../images/car-main-car01.png") no-repeat; }
+  &.car2 .hd { background: url("../images/car-main-car02.png") no-repeat; }
+  &.car3 .hd { background: url("../images/car-main-car03.png") no-repeat; }
 
-  &.luxury1 { background: url("../images/car-main-luxury01.png") no-repeat; }
-  &.luxury2 { background: url("../images/car-main-luxury02.png") no-repeat; }
-  &.luxury3 { background: url("../images/car-main-luxury03.png") no-repeat; }
+  &.luxury1 .hd { background: url("../images/car-main-luxury01.png") no-repeat; }
+  &.luxury2 .hd { background: url("../images/car-main-luxury02.png") no-repeat; }
+  &.luxury3 .hd { background: url("../images/car-main-luxury03.png") no-repeat; }
 
-  &.suv1 { background: url("../images/car-main-suv01.png") no-repeat; }
-  &.suv2 { background: url("../images/car-main-suv02.png") no-repeat; }
-  &.suv3 { background: url("../images/car-main-suv03.png") no-repeat; }
+  &.suv1 .hd { background: url("../images/car-main-suv01.png") no-repeat; }
+  &.suv2 .hd { background: url("../images/car-main-suv02.png") no-repeat; }
+  &.suv3 .hd { background: url("../images/car-main-suv03.png") no-repeat; }
+
+  .hd {
+    position: absolute;
+    z-index: 10;
+    @extend .full-size;
+    background-size: cover;
+    transition: all .6s;
+  }
 
   .bd {
     opacity: 0;
@@ -438,7 +445,7 @@ $globalDelay: .2s;
     }
   }
 
-  &.comparison {
+  &.comparison .hd {
     background-position: 100px 100px;
   }
 }
@@ -601,7 +608,7 @@ $globalDelay: .2s;
     .item05 { animation: bounceInUp $duration (2.5s + $delay*3) forwards; }
   }
 
-  @-webkit-keyframes bounceInUp {
+  @keyframes bounceInUp {
     from, 60%, 75%, 90%, to {
       -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
       animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
@@ -974,27 +981,27 @@ $globalDelay: .2s;
   .person-info {
     top: 263px;
     left: 64px;
-    @extend .downIn;
+    @extend .leftIn;
   }
 
   .select-car-model {
     top: 263px;
     left: 366px;
     z-index: 100;
-    @extend .downIn;
+    @extend .leftIn;
   }
 
   .select-dealer {
     top: 403px;
     left: 366px;
     z-index: 10;
-    @extend .downIn;
+    @extend .leftIn;
   }
 
   .buyer-plan {
     top: 643px;
     left: 64px;
-    @extend .downIn;
+    @extend .leftIn;
   }
 
   .submit {
@@ -1005,7 +1012,7 @@ $globalDelay: .2s;
     background: url("../images/btn-submit.png") no-repeat 6px 6px;
     cursor: pointer;
     border: none;
-    @extend .downIn;
+    @extend .leftIn;
 
     &:hover {
       background: url("../images/btn-submit-active.png") no-repeat;
@@ -1018,24 +1025,19 @@ $globalDelay: .2s;
     }
 
     .person-info {
-      @extend .downInActive;
-      transition-delay: .2s;
+      @extend .leftInActive;
     }
     .select-car-model {
-      @extend .downInActive;
-      transition-delay: .2s;
+      @extend .leftInActive;
     }
     .select-dealer {
-      @extend .downInActive;
-      transition-delay: .4s;
+      @extend .leftInActive;
     }
     .buyer-plan {
-      @extend .downInActive;
-      transition-delay: .6s;
+      @extend .leftInActive;
     }
     .submit {
-      @extend .downInActive;
-      transition-delay: .8s;
+      @extend .leftInActive;
     }
   }
 }
