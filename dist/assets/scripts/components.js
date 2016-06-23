@@ -7,7 +7,9 @@ var components = {
         $('body')
             .on('click', '.select-hd', function (e) {
                 e.stopPropagation();
+                $('.select').removeClass('active');
                 $(this).parent('.select').toggleClass('active');
+                $(this).parent('.select').find('.select-bd .container').scrollTop(0);
             })
             .on('click', '.select-bd .item', function (e) {
                 $(this).parents('.select').find('.select-hd span').text($(this).text());

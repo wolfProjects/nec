@@ -22,6 +22,7 @@
 
 <!-- full-car -->
 <div class="full-car">
+    <canvas class="animation-bg" width="1280" height="720"></canvas>
     <div class="hd"></div>
     <div class="bd"></div>
 </div>
@@ -34,7 +35,6 @@
         <div class="pa time"></div>
         <div class="pa logo">
             <img class="img01" src="assets/images/s01-logo01.png" alt=""/><br/>
-            <img class="img02" src="assets/images/s01-logo02.png" alt=""/>
         </div>
         <div class="pa description">
             <strong>SmartDealer</strong>（智能化解决方案）理念将贯穿于全业务流程（售前、售中、售后），利用前端（线上：微信平台、app工具 及线下：交互式一体机、智能洽谈桌、智能手持平板）结合后台（DMB、CRM、云计算/服务、分析引擎），为不同客户（厂商、经销商）打造定制化服务，提供：更实用的营销工具、更精准的经营决策、更顺畅的业务流程、更丰富的盈利来源，实现厂商与经销商共赢。
@@ -142,20 +142,6 @@
 
 <!-- scene03 -->
 <section class="scene scene03 active" style="display: none;">
-    <!-- car -->
-    <div class="pa car">
-        <div class="pa hotdot">
-            <img src="assets/images/s03-getqrcode.png" width="127" height="24" alt=""/>
-            <div class="pa dot">
-                <div class="dot-bd"></div>
-            </div>
-            <div class="pa qrcode">
-                <img src="assets/images/qrcode.jpg" alt="" width="120" height="113"/>
-            </div>
-        </div>
-    </div>
-    <!-- end car -->
-
     <div class="topic">
         <div class="pa hd">
             <img src="assets/images/s03-comparison-models.png" alt="" width="180" height="48"/>
@@ -167,95 +153,143 @@
         <div class="pa line"></div>
     </div>
 
-    <div class="pa title">
-        <div class="item item01"><img src="assets/images/s03-title01.png" alt=""/></div>
-        <div class="item item02"><img src="assets/images/s03-title02.png" alt=""/></div>
-    </div>
-
-    <!-- 模式选择 radio -->
-    <div class="pa model-select">
-        <div class="item item01">
-            <span class="radio active">
-                <span class="radio-hd"></span>
-                <span class="radio-bd"></span>
-            </span>
-            <div class="model"><img src="assets/images/s03-modeltitle-std.png" alt=""/></div>
-        </div>
-        <div class="item item02">
-           <span class="radio">
-                <span class="radio-hd"></span>
-                <span class="radio-bd"></span>
-            </span>
-            <div class="model"><img src="assets/images/s03-modeltitle-optional.png" alt=""/></div>
-        </div>
-        <div class="pa item item03">
-            <span class="radio">
-                <span class="radio-hd"></span>
-                <span class="radio-bd"></span>
-            </span>
-            <div class="model"><img src="assets/images/s03-modeltitle-nothing.png" alt=""/></div>
-        </div>
-    </div>
-    <!-- end 模式选择 radio -->
-
-    <!-- 基本参数 -->
-    <div class="pa panel">
-        <div class="panel-hd">
-            <img src="assets/images/s03-panel-title.png" alt="" width="120" height="50"/>
-        </div>
-        <div class="panel-bd">
-            <div class="panel-bd-item active">
-                <div class="wrap">
-                    <div class="body">
-                    </div>
+    <!-- 车型A-->
+    <div class="pa car-a car-panel">
+        <!-- car -->
+        <div class="pa car-viewer car1">
+            <div class="pa hotdot">
+                <img src="assets/images/s03-getqrcode.png" width="127" height="24" alt=""/>
+                <div class="pa dot">
+                    <div class="dot-bd"></div>
                 </div>
-                <div class="pa triangle"></div>
+                <div class="pa qrcode">
+                    <img src="assets/images/qrcode.jpg" alt="" width="120" height="113"/>
+                </div>
             </div>
+            <div class="name"></div>
+        </div>
+        <!-- end car -->
 
-            <div class="panel-bd-item behind">
-                <div class="wrap">
-                    <div class="body">
-                    </div>
-                </div>
-                <div class="pa triangle"></div>
+        <!-- 基本参数 -->
+        <div class="pa panel">
+            <div class="panel-hd">
+                <img src="assets/images/s03-panel-title.png" alt="" width="120" height="50"/>
             </div>
-
-            <div class="panel-bd-item behind">
-                <div class="wrap">
-                    <div class="body">
+            <div class="panel-bd">
+                <div class="panel-bd-item">
+                    <div class="wrap">
+                        <div class="body">
+                        </div>
                     </div>
+                    <div class="pa triangle"></div>
                 </div>
-                <div class="pa triangle"></div>
             </div>
         </div>
-    </div>
-    <!-- end 基本参数 -->
+        <!-- end 基本参数 -->
 
-    <!-- 车类选择 select -->
-    <div class="pa select car-type-select" data-value="car">
-        <div class="select-hd">
-            <span></span>
-            <i class="icon"></i>
+        <!-- 车类选择 select -->
+        <div class="pa select s03-car-type-select car-type-select-a" data-value="car">
+            <div class="select-hd">
+                <span></span>
+                <i class="icon"></i>
+            </div>
+            <div class="select-bd">
+                <div class="bd"></div>
+                <div class="bottom"></div>
+            </div>
         </div>
-        <div class="select-bd">
-            <div class="bd"></div>
-            <div class="bottom"></div>
-        </div>
-    </div>
-    <!-- end 车类选择 select -->
+        <!-- end 车类选择 select -->
 
-    <!-- 车型选择 select -->
-    <div class="pa select car-model-select" data-value="">
-        <div class="select-hd">
-            <span></span>
-            <i class="icon"></i>
+        <!-- 车型选择 tab -->
+        <div class="pa s03-car-model-tab">
+            <div class="item item01 active" data-value="1">
+                <i class="badge">A</i>
+                <i class="triangle"></i>
+                <i class="icon"></i>
+            </div>
+            <div class="item item02" data-value="2">
+                <i class="badge">B</i>
+                <i class="triangle"></i>
+                <i class="icon"></i>
+            </div>
+            <div class="item item03" data-value="3">
+                <i class="badge">C</i>
+                <i class="triangle"></i>
+                <i class="icon"></i>
+            </div>
         </div>
-        <div class="select-bd">
-            <div class="bd"></div>
-            <div class="bottom"></div>
-        </div>
+        <!-- end 车型选择 tab -->
     </div>
-    <!-- end 车型选择 select -->
+    <!-- end 车型A -->
+
+    <!-- 车型B -->
+    <div class="pa car-b car-panel">
+        <!-- car -->
+        <div class="pa car-viewer car1">
+            <div class="pa hotdot">
+                <img src="assets/images/s03-getqrcode.png" width="127" height="24" alt=""/>
+                <div class="pa dot">
+                    <div class="dot-bd"></div>
+                </div>
+                <div class="pa qrcode">
+                    <img src="assets/images/qrcode.jpg" alt="" width="120" height="113"/>
+                </div>
+            </div>
+            <div class="name"></div>
+        </div>
+        <!-- end car -->
+
+        <!-- 基本参数 -->
+        <div class="pa panel">
+            <div class="panel-hd">
+                <img src="assets/images/s03-panel-title.png" alt="" width="120" height="50"/>
+            </div>
+            <div class="panel-bd">
+                <div class="panel-bd-item">
+                    <div class="wrap">
+                        <div class="body">
+                        </div>
+                    </div>
+                    <div class="pa triangle"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end 基本参数 -->
+
+        <!-- 车类选择 select -->
+        <div class="pa select s03-car-type-select car-type-select-a" data-value="car">
+            <div class="select-hd">
+                <span></span>
+                <i class="icon"></i>
+            </div>
+            <div class="select-bd">
+                <div class="bd"></div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+        <!-- end 车类选择 select -->
+
+        <!-- 车型选择 tab -->
+        <div class="pa s03-car-model-tab">
+            <div class="item item01 active" data-value="1">
+                <i class="badge">A</i>
+                <i class="triangle"></i>
+                <i class="icon"></i>
+            </div>
+            <div class="item item02" data-value="2">
+                <i class="badge">B</i>
+                <i class="triangle"></i>
+                <i class="icon"></i>
+            </div>
+            <div class="item item03" data-value="3">
+                <i class="badge">C</i>
+                <i class="triangle"></i>
+                <i class="icon"></i>
+            </div>
+        </div>
+        <!-- end 车型选择 tab -->
+    </div>
+    <!-- end 车型B -->
 </section>
 <!-- end scene03 -->
 
@@ -310,6 +344,7 @@
                 <i class="icon"></i>
             </div>
             <div class="select-bd">
+                <div class="top"></div>
                 <div class="bd"></div>
                 <div class="bottom"></div>
             </div>
@@ -329,10 +364,14 @@
                 <i class="icon"></i>
             </div>
             <div class="select-bd">
+                <div class="top"></div>
                 <div class="bd">
-                    <div class="item" data-value="hebei">河北</div>
-                    <div class="item" data-value="hunan">湖南</div>
-                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="container">
+                        <div class="item" data-value="hebei">河北</div>
+                        <div class="item" data-value="hunan">湖南</div>
+                        <div class="item" data-value="shanghai">上海</div>
+                    </div>
+                    <div class="triangle"></div>
                 </div>
                 <div class="bottom"></div>
             </div>
@@ -346,10 +385,12 @@
                 <i class="icon"></i>
             </div>
             <div class="select-bd">
+                <div class="top"></div>
                 <div class="bd">
-                    <div class="item" data-value="shijiazhuang">石家庄</div>
-                    <div class="item" data-value="suv">SUV</div>
-                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="container">
+
+                    </div>
+                    <div class="triangle"></div>
                 </div>
                 <div class="bottom"></div>
             </div>
@@ -363,10 +404,14 @@
                 <i class="icon"></i>
             </div>
             <div class="select-bd">
+                <div class="top"></div>
                 <div class="bd">
-                    <div class="item" data-value="jxs">经销商</div>
-                    <div class="item" data-value="suv">SUV</div>
-                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="container">
+                        <div class="item" data-value="jxs">经销商</div>
+                        <div class="item" data-value="suv">SUV</div>
+                        <div class="item" data-value="haohua">豪华车</div>
+                    </div>
+                    <div class="triangle"></div>
                 </div>
                 <div class="bottom"></div>
             </div>
@@ -426,11 +471,6 @@
         <div class="pa line"></div>
     </div>
 
-    <div class="pa title">
-        <div class="item item01"><img src="assets/images/s03-title01.png" alt=""></div>
-        <div class="item item02"><img src="assets/images/s03-title02.png" alt=""></div>
-    </div>
-
     <!-- 经销商信息 -->
     <div class="pa panel">
         <div class="panel-hd">东湖区汽车4S经销店</div>
@@ -452,8 +492,8 @@
             <div class="sk-rect sk-rect4"></div>
             <div class="sk-rect sk-rect5"></div>
         </div>
-        <div class="bd">
-            <img src="assets/images/map.jpg" alt="" width="1121" height="569"/>
+        <div class="bd" id="map1">
+            <!--<img src="assets/images/map.jpg" alt="" width="1121" height="569"/>-->
         </div>
     </div>
     <!-- end map -->
@@ -512,8 +552,8 @@
             <div class="sk-rect sk-rect4"></div>
             <div class="sk-rect sk-rect5"></div>
         </div>
-        <div class="bd">
-            <img src="assets/images/map.jpg" alt="" width="1121" height="569"/>
+        <div class="bd" id="map2">
+            <!--<img src="assets/images/map.jpg" alt="" width="1121" height="569"/>-->
         </div>
     </div>
     <!-- end map -->
@@ -560,16 +600,34 @@
 <!-- 经销商查询 select group -->
 <div class="dealer-query-select">
     <!-- 省份 select -->
-    <div class="pa select province" data-value="hebei">
+    <div class="pa select province scroll" data-value="hebei">
         <div class="select-hd">
             <span>河北</span>
             <i class="icon"></i>
         </div>
         <div class="select-bd">
+            <div class="top"></div>
             <div class="bd">
-                <div class="item" data-value="hebei">河北</div>
-                <div class="item" data-value="hunan">湖南</div>
-                <div class="item" data-value="shanghai">上海</div>
+                <div class="container">
+                    <div class="item" data-value="hebei">河北</div>
+                    <div class="item" data-value="hunan">湖南</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                    <div class="item" data-value="shanghai">上海</div>
+                </div>
+                <div class="triangle"></div>
             </div>
             <div class="bottom"></div>
         </div>
@@ -577,16 +635,34 @@
     <!-- end 省份 select -->
 
     <!-- 城市 select -->
-    <div class="pa select city" data-value="chengshi">
+    <div class="pa select city scroll" data-value="chengshi">
         <div class="select-hd">
             <span>城市</span>
             <i class="icon"></i>
         </div>
         <div class="select-bd">
+            <div class="top"></div>
             <div class="bd">
-                <div class="item" data-value="shijiazhuang">石家庄</div>
-                <div class="item" data-value="suv">SUV</div>
-                <div class="item" data-value="haohua">豪华车</div>
+                <div class="container">
+                    <div class="item" data-value="shijiazhuang">石家庄</div>
+                    <div class="item" data-value="suv">SUV</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                </div>
+                <div class="triangle"></div>
             </div>
             <div class="bottom"></div>
         </div>
@@ -600,10 +676,14 @@
             <i class="icon"></i>
         </div>
         <div class="select-bd">
+            <div class="top"></div>
             <div class="bd">
-                <div class="item" data-value="jiaoche">经销商</div>
-                <div class="item" data-value="suv">SUV</div>
-                <div class="item" data-value="haohua">豪华车</div>
+                <div class="container">
+                    <div class="item" data-value="jiaoche">经销商</div>
+                    <div class="item" data-value="suv">SUV</div>
+                    <div class="item" data-value="haohua">豪华车</div>
+                </div>
+                <div class="triangle"></div>
             </div>
             <div class="bottom"></div>
         </div>
@@ -619,6 +699,7 @@
 <script src="assets/scripts/components.js"></script>
 <script src="assets/scripts/data.js"></script>
 <script src="assets/scripts/main.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=D7d728b287ed8a6132a195fd58874b14"></script>
 <!-- endinject -->
 </body>
 </html>

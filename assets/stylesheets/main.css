@@ -307,51 +307,6 @@ input {
   height: 92px;
 }
 
-.hotdot {
-  display: none;
-  cursor: pointer;
-}
-.hotdot.car1 {
-  right: 923px;
-  bottom: 653px;
-}
-.hotdot.car2 {
-  right: 889px;
-  bottom: 668px;
-}
-.hotdot.car3 {
-  right: 946px;
-  bottom: 653px;
-}
-.hotdot.suv1 {
-  right: 942px;
-  bottom: 702px;
-}
-.hotdot.suv2 {
-  right: 958px;
-  bottom: 709px;
-}
-.hotdot.suv3 {
-  right: 940px;
-  bottom: 709px;
-}
-.hotdot.luxury1 {
-  right: 938px;
-  bottom: 646px;
-}
-.hotdot.luxury2 {
-  right: 923px;
-  bottom: 656px;
-}
-.hotdot.luxury3 {
-  right: 954px;
-  bottom: 676px;
-}
-.hotdot.transform {
-  -webkit-transform: translate3d(100px, 100px, 0);
-          transform: translate3d(100px, 100px, 0);
-}
-
 .dot {
   position: absolute;
   right: -34px;
@@ -380,13 +335,13 @@ input {
   background-image: url("../images/s01-bg.jpg");
 }
 .background.s02 {
-  background-image: url("../images/s02-bg-test.jpg");
+  background-image: url("../images/s03-bg.jpg");
 }
 .background.s03 {
-  background-image: url("../images/s02-bg-test.jpg");
+  background-image: url("../images/s03-bg.jpg");
 }
 .background.s04 {
-  background-image: url("../images/s04-bg.jpg");
+  background-image: url("../images/s03-bg.jpg");
 }
 .background.s05, .background.s06 {
   background-image: url("../images/map-bg.jpg");
@@ -437,17 +392,24 @@ input {
   background: url("../images/car-shadow.png") no-repeat;
   background-size: cover;
 }
+.full-car .animation-bg {
+  position: absolute;
+  left: 550px;
+  top: 346px;
+  width: 1054px;
+  height: 660px;
+}
 .full-car.comparison .hd {
   background-position: 100px 100px;
 }
 
-.leftIn, .scene02 .title, .scene02 .person, .scene03 .panel, .scene04 .title, .scene04 .person-info, .scene04 .select-car-model, .scene04 .select-dealer, .scene04 .buyer-plan, .scene04 .submit, .scene05 .panel, .scene06 .title, .scene06 .panel {
+.leftIn, .scene02 .title, .scene02 .person, .scene03 .car-a, .scene03 .car-b, .scene03 .select, .scene04 .title, .scene04 .person-info, .scene04 .select-car-model, .scene04 .select-dealer, .scene04 .buyer-plan, .scene04 .submit, .scene05 .panel, .scene06 .title, .scene06 .panel {
   opacity: 0;
   -webkit-transform: translate3d(-15px, 0, 0);
           transform: translate3d(-15px, 0, 0);
 }
 
-.leftInActive, .scene02.active .title, .scene02.active .person, .scene03.active .panel, .scene04.active .title, .scene04.active .person-info, .scene04.active .select-car-model, .scene04.active .select-dealer, .scene04.active .buyer-plan, .scene04.active .submit, .scene05.active .panel, .scene06.active .title, .scene06.active .panel {
+.leftInActive, .scene02.active .title, .scene02.active .person, .scene03.active .select, .scene03.active .panel, .scene03.active .car-a, .scene03.active .car-b, .scene04.active .title, .scene04.active .person-info, .scene04.active .select-car-model, .scene04.active .select-dealer, .scene04.active .buyer-plan, .scene04.active .submit, .scene05.active .panel, .scene06.active .title, .scene06.active .panel {
   opacity: 1;
   -webkit-transition: opacity 1s 0.2s, -webkit-transform 1s 0.2s;
   transition: opacity 1s 0.2s, -webkit-transform 1s 0.2s;
@@ -457,13 +419,13 @@ input {
           transform: translate3d(0, 0, 0);
 }
 
-.downIn, .full-car .bd, .scene02 .car-type-select, .scene03 .select, .dealer-query-select .select {
+.downIn, .full-car .bd, .scene02 .car-type-select, .dealer-query-select .select {
   opacity: 0;
   -webkit-transform: translate3d(0, 15px, 0);
           transform: translate3d(0, 15px, 0);
 }
 
-.downInActive, .full-car.shadow .bd, .scene02.active .car-type-select, .scene03.active .select, .dealer-query-select.active .select {
+.downInActive, .full-car.shadow .bd, .scene02.active .car-type-select, .dealer-query-select.active .select {
   opacity: 1;
   -webkit-transition: opacity 1s 0.2s, -webkit-transform 1s 0.2s;
   transition: opacity 1s 0.2s, -webkit-transform 1s 0.2s;
@@ -503,7 +465,7 @@ input {
 .scene01 .logo {
   text-align: center;
   line-height: 0;
-  top: 260px;
+  top: 270px;
 }
 .scene01 .logo .img01 {
   opacity: 0;
@@ -768,7 +730,7 @@ input {
   top: 600px;
   left: 128px;
   width: 340px;
-  line-height: 22px;
+  line-height: 1.45em;
   font-size: 15px;
   color: #6c7eba;
   text-indent: 2em;
@@ -782,6 +744,45 @@ input {
   position: absolute;
   top: 676px;
   left: 1648px;
+}
+.scene02 .hotdot {
+  z-index: 100;
+}
+.scene02 .hotdot.car1 {
+  right: 923px;
+  bottom: 653px;
+}
+.scene02 .hotdot.car2 {
+  right: 889px;
+  bottom: 668px;
+}
+.scene02 .hotdot.car3 {
+  right: 946px;
+  bottom: 653px;
+}
+.scene02 .hotdot.suv1 {
+  right: 942px;
+  bottom: 702px;
+}
+.scene02 .hotdot.suv2 {
+  right: 958px;
+  bottom: 709px;
+}
+.scene02 .hotdot.suv3 {
+  right: 940px;
+  bottom: 709px;
+}
+.scene02 .hotdot.luxury1 {
+  right: 938px;
+  bottom: 646px;
+}
+.scene02 .hotdot.luxury2 {
+  right: 923px;
+  bottom: 656px;
+}
+.scene02 .hotdot.luxury3 {
+  right: 954px;
+  bottom: 676px;
 }
 .scene02.active .title {
   opacity: 1;
@@ -819,9 +820,9 @@ input {
   height: 110px;
   padding: 15px;
   background: url("../images/qrcode-bg.png") no-repeat;
+  opacity: 0;
   -webkit-transition: all .3s;
   transition: all .3s;
-  opacity: 0;
   -webkit-transform: translate3d(0, 5px, 0);
           transform: translate3d(0, 5px, 0);
 }
@@ -830,62 +831,197 @@ input {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
-.scene03 .model-select {
-  left: 152px;
-  top: 116px;
+.scene03 .hotdot.car1 {
+  right: 460px;
+  bottom: 131px;
 }
-.scene03 .model-select .item {
-  opacity: 0;
-  width: 150px;
-  overflow: hidden;
-  margin-bottom: 27px;
+.scene03 .hotdot.car2 {
+  right: 448px;
+  bottom: 144px;
 }
-.scene03 .model-select .item01 {
+.scene03 .hotdot.car3 {
+  right: 463px;
+  bottom: 129px;
+}
+.scene03 .hotdot.suv1 {
+  right: 460px;
+  bottom: 149px;
+}
+.scene03 .hotdot.suv2 {
+  right: 460px;
+  bottom: 155px;
+}
+.scene03 .hotdot.suv3 {
+  right: 469px;
+  bottom: 159px;
+}
+.scene03 .hotdot.luxury1 {
+  right: 455px;
+  bottom: 128px;
+}
+.scene03 .hotdot.luxury2 {
+  right: 465px;
+  bottom: 139px;
+}
+.scene03 .hotdot.luxury3 {
+  right: 465px;
+  bottom: 139px;
+}
+.scene03 .hotdot.transform {
+  -webkit-transform: translate3d(100px, 100px, 0);
+          transform: translate3d(100px, 100px, 0);
+}
+.scene03 .s03-car-model-tab {
+  top: 217px;
+  left: 616px;
+  padding-top: 15px;
   -webkit-transition: all 1.2s 0.2s;
   transition: all 1.2s 0.2s;
-  -webkit-transform: translate3d(-20px, 0, 0);
-          transform: translate3d(-20px, 0, 0);
+  -webkit-transform: translate3d(20px, 0, 0);
+          transform: translate3d(20px, 0, 0);
+  z-index: 20;
 }
-.scene03 .model-select .item02 {
-  margin-left: 22px;
-  -webkit-transform: translate3d(-42px, 0, 0);
-          transform: translate3d(-42px, 0, 0);
-  -webkit-transition: all 1.2s 0.24s;
-  transition: all 1.2s 0.24s;
+.scene03 .s03-car-model-tab .item {
+  width: 142px;
+  height: 133px;
+  margin-top: -15px;
+  background: url("../images/car-model-select.png") no-repeat 4px 4px;
+  cursor: pointer;
+  position: relative;
 }
-.scene03 .model-select .item03 {
-  margin-left: 44px;
-  -webkit-transform: translate3d(-62px, 0, 0);
-          transform: translate3d(-62px, 0, 0);
-  -webkit-transition: all 1.2s 0.28s;
-  transition: all 1.2s 0.28s;
+.scene03 .s03-car-model-tab .item .badge {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  font-size: 20px;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-style: normal;
+  background: #d86f44;
+  opacity: 0;
 }
-.scene03 .model-select .radio {
-  float: left;
-  margin-top: 1px;
-  margin-right: 24px;
+.scene03 .s03-car-model-tab .item .triangle {
+  opacity: 0;
+  position: absolute;
+  width: 15px;
+  height: 26px;
+  left: -40px;
+  top: 60px;
+  background: url("../images/icon-triangle-left.png") no-repeat;
 }
-.scene03 .model-select .model {
-  float: left;
-}
-.scene03 .model-select .model img {
+.scene03 .s03-car-model-tab .item .icon {
   display: block;
+  width: 100%;
+  height: 100%;
+  background: url("../images/car-model-tab-jiaoche.png") no-repeat center center;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+.scene03 .s03-car-model-tab .item.active {
+  z-index: 10;
+  background: url("../images/car-model-select-active.png") no-repeat;
+}
+.scene03 .s03-car-model-tab .item.active .badge {
+  opacity: 1;
+}
+.scene03 .s03-car-model-tab .item.active .triangle {
+  opacity: 1;
+  -webkit-animation: left 1.2s 0.2s infinite linear forwards;
+          animation: left 1.2s 0.2s infinite linear forwards;
+}
+.scene03 .s03-car-model-tab .item.active .icon {
+  background: url("../images/car-model-tab-jiaoche-active.png") no-repeat center center;
+}
+.scene03 .s03-car-model-tab.car .item .icon {
+  background: url("../images/car-model-tab-jiaoche.png") no-repeat center center;
+}
+.scene03 .s03-car-model-tab.car .item.active .icon {
+  background: url("../images/car-model-tab-jiaoche-active.png") no-repeat center center;
+}
+.scene03 .s03-car-model-tab.luxury .item .icon {
+  background: url("../images/car-model-tab-haohua.png") no-repeat center center;
+}
+.scene03 .s03-car-model-tab.luxury .item.active .icon {
+  background: url("../images/car-model-tab-haohua-active.png") no-repeat center center;
+}
+.scene03 .s03-car-model-tab.suv .item .icon {
+  background: url("../images/car-model-tab-suv.png") no-repeat center center;
+}
+.scene03 .s03-car-model-tab.suv .item.active .icon {
+  background: url("../images/car-model-tab-suv-active.png") no-repeat center center;
+}
+.scene03 .s03-car-model-tab.active {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+.scene03 .car-a {
+  width: 745px;
+  top: 0;
+  left: 153px;
+}
+.scene03 .name {
+  font-size: 24px;
+  color: #d86f44;
+  position: absolute;
+  right: 255px;
+  top: 320px;
+}
+.scene03 .car-b {
+  width: 745px;
+  top: 0;
+  left: 1040px;
+}
+.scene03 .car-viewer {
+  top: 0;
+  left: 0;
+  width: 745px;
+  height: 360px;
+}
+.scene03 .car-viewer.car1 {
+  background: url("../images/car-small-car01.png") no-repeat;
+}
+.scene03 .car-viewer.car2 {
+  background: url("../images/car-small-car02.png") no-repeat;
+}
+.scene03 .car-viewer.car3 {
+  background: url("../images/car-small-car03.png") no-repeat;
+}
+.scene03 .car-viewer.luxury1 {
+  background: url("../images/car-small-luxury01.png") no-repeat;
+}
+.scene03 .car-viewer.luxury2 {
+  background: url("../images/car-small-luxury02.png") no-repeat;
+}
+.scene03 .car-viewer.luxury3 {
+  background: url("../images/car-small-luxury03.png") no-repeat;
+}
+.scene03 .car-viewer.suv1 {
+  background: url("../images/car-small-suv01.png") no-repeat;
+}
+.scene03 .car-viewer.suv2 {
+  background: url("../images/car-small-suv02.png") no-repeat;
+}
+.scene03 .car-viewer.suv3 {
+  background: url("../images/car-small-suv03.png") no-repeat;
 }
 .scene03 .panel {
-  top: 280px;
-  left: 54px;
+  top: 313px;
+  left: 0;
 }
 .scene03 .panel-hd {
   margin-left: -6px;
 }
 .scene03 .panel-bd-item {
   position: absolute;
-  top: 60px;
-  left: 0;
-  width: 440px;
-  height: 563px;
+  top: -8px;
+  left: -58px;
+  width: 561px;
+  height: 608px;
   padding-top: 21px;
-  background: url("../images/s03-panel-bg.jpg") no-repeat;
+  background: url("../images/s03-panel-bg.png") no-repeat;
   -webkit-transition: -webkit-transform 1s;
   transition: -webkit-transform 1s;
   transition: transform 1s;
@@ -897,7 +1033,7 @@ input {
 }
 .scene03 .panel-bd-item .tt {
   position: absolute;
-  left: 37px;
+  left: 35px;
   height: 56px;
   line-height: 56px;
   color: #3c4e76;
@@ -905,7 +1041,7 @@ input {
 }
 .scene03 .panel-bd-item .bd {
   position: absolute;
-  right: 40px;
+  right: 15px;
   height: 56px;
   line-height: 56px;
   color: #3c4e76;
@@ -916,64 +1052,36 @@ input {
   font-size: 50px;
   font-weight: normal;
 }
-.scene03 .panel-bd-item.active {
-  z-index: 10;
-}
-.scene03 .panel-bd-item.active .triangle {
+.scene03 .panel-bd-item .triangle {
   -webkit-animation: breath 1s .6s infinite;
           animation: breath 1s .6s infinite;
 }
 .scene03 .panel-bd-item.hide {
   opacity: 0;
 }
-.scene03 .panel-bd-item.behind {
-  -webkit-transform: translate3d(25px, 30px, 0);
-          transform: translate3d(25px, 30px, 0);
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
-  opacity: .2;
-}
 .scene03 .wrap {
   overflow: hidden;
+  width: 440px;
+  padding: 58px 0 0 58px;
 }
 .scene03 .wrap .body {
   width: 100%;
-  height: 506px;
+  height: 432px;
   padding-right: 20px;
   overflow-y: scroll;
 }
 .scene03 .triangle {
-  left: 0;
-  right: 0;
-  bottom: 11px;
+  left: 245px;
+  top: 540px;
+  width: 19px;
   height: 11px;
-  opacity: 0;
   background: url("../images/icon-triangle-down.png") no-repeat center center;
 }
-.scene03 .car-type-select {
+.scene03 .s03-car-type-select {
   position: absolute;
-  top: 816px;
-  left: 1304px;
+  top: 713px;
+  left: 564px;
   z-index: 1100;
-}
-.scene03 .car-model-select {
-  position: absolute;
-  top: 816px;
-  left: 1515px;
-  z-index: 1100;
-}
-.scene03.active .model-select .item {
-  opacity: 1;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-}
-.scene03.active .title .item01, .scene03.active .title .item02 {
-  width: 100%;
-  -webkit-transition: all 0.6s 0.2s;
-  transition: all 0.6s 0.2s;
 }
 .scene03.active .panel {
   opacity: 1;
@@ -1015,6 +1123,11 @@ input {
 .scene04 .person-info {
   top: 263px;
   left: 64px;
+}
+.scene04 .select-bd {
+  left: 214px;
+  top: 0;
+  width: 100%;
 }
 .scene04 .select-car-model {
   top: 263px;
@@ -1139,6 +1252,10 @@ input {
           transform: translate3d(0, 1000, 0);
   -webkit-transition: opacity .6s;
   transition: opacity .6s;
+}
+.dealer-query-select .select-bd {
+  top: auto;
+  bottom: 55px;
 }
 .dealer-query-select .province {
   top: 787px;
@@ -1274,6 +1391,12 @@ input {
   display: block;
   z-index: 1000;
 }
+.select.scroll .bd {
+  padding-bottom: 30px;
+}
+.select.scroll .bd .triangle {
+  display: block;
+}
 
 .select-hd {
   height: 55px;
@@ -1304,8 +1427,27 @@ input {
   top: 55px;
 }
 .select-bd .bd {
+  position: relative;
+  overflow: hidden;
   padding: 5px 0;
   background: url("../images/select-bd-bg.png") repeat-y;
+}
+.select-bd .bd .container {
+  width: 100%;
+  padding-right: 20px;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+.select-bd .bd .triangle {
+  display: none;
+  position: absolute;
+  width: 19px;
+  height: 11px;
+  left: 100px;
+  bottom: 10px;
+  background: url("../images/icon-triangle-down.png") no-repeat;
+  -webkit-animation: breath 1.2s .2s infinite;
+          animation: breath 1.2s .2s infinite;
 }
 .select-bd .item {
   padding: 0 22px;
@@ -1320,6 +1462,12 @@ input {
 .select-bd .bottom {
   height: 8px;
   background: url("../images/select-bd-bottom.png") no-repeat;
+}
+
+.top {
+  width: 214px;
+  height: 8px;
+  background: url("../images/select-bd-top.png") no-repeat;
 }
 
 .radio {
