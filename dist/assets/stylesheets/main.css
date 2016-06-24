@@ -552,36 +552,32 @@ input {
   -webkit-transition: all 1s 1s;
   transition: all 1s 1s;
 }
-.scene01.active .logo .img02 {
-  -webkit-transition: all 1s 1.6s;
-  transition: all 1s 1.6s;
-}
 .scene01.active .description {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
-  -webkit-transition: all 1s 2.2s;
-  transition: all 1s 2.2s;
+  -webkit-transition: all 1s 1.6s;
+  transition: all 1s 1.6s;
   opacity: 1;
 }
 .scene01.active .item01 {
-  -webkit-animation: bounceInUp 0.6s 2.8s forwards;
-          animation: bounceInUp 0.6s 2.8s forwards;
+  -webkit-animation: bounceInUp 0.6s 1.8s forwards;
+          animation: bounceInUp 0.6s 1.8s forwards;
 }
 .scene01.active .item02 {
-  -webkit-animation: bounceInUp 0.6s 2.95s forwards;
-          animation: bounceInUp 0.6s 2.95s forwards;
+  -webkit-animation: bounceInUp 0.6s 1.95s forwards;
+          animation: bounceInUp 0.6s 1.95s forwards;
 }
 .scene01.active .item03 {
-  -webkit-animation: bounceInUp 0.6s 3.1s forwards;
-          animation: bounceInUp 0.6s 3.1s forwards;
+  -webkit-animation: bounceInUp 0.6s 2.1s forwards;
+          animation: bounceInUp 0.6s 2.1s forwards;
 }
 .scene01.active .item04 {
-  -webkit-animation: bounceInUp 0.6s 3.25s forwards;
-          animation: bounceInUp 0.6s 3.25s forwards;
+  -webkit-animation: bounceInUp 0.6s 2.25s forwards;
+          animation: bounceInUp 0.6s 2.25s forwards;
 }
 .scene01.active .item05 {
-  -webkit-animation: bounceInUp 0.6s 3.4s forwards;
-          animation: bounceInUp 0.6s 3.4s forwards;
+  -webkit-animation: bounceInUp 0.6s 2.4s forwards;
+          animation: bounceInUp 0.6s 2.4s forwards;
 }
 .scene01.active .svg .bar {
   -webkit-transition: stroke-dashoffset 1.2s ease-out;

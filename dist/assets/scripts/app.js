@@ -948,6 +948,8 @@ var app = {
                                 }
                             }, "上海市闸北区光复路");
                         }, 1000);
+                    } else {
+                        $('#map1').parents('.map').removeClass('finished');
                     }
 
                     if (index == 6) {
@@ -976,6 +978,8 @@ var app = {
                                 }
                             }, "上海市闸北区光复路");
                         }, 1000);
+                    } else {
+                        $('#map2').parents('.map').removeClass('finished');
                     }
                 } else {
                     $('.map').removeClass('finished');

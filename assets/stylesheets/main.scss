@@ -564,25 +564,21 @@ $globalDelay: .2s;
       .img01 {
         transition: all $duration $preDelay;
       }
-
-      .img02 {
-        transition: all $duration ($transitionDelay*1+$preDelay);
-      }
     }
 
     .description {
       transform: translate3d(0, 0, 0);
-      transition: all $duration ($transitionDelay*2+$preDelay);
+      transition: all $duration ($transitionDelay*1+$preDelay);
       opacity: 1;
     }
 
     $duration: .6s;
     $delay: .3s;
-    .item01 { animation: bounceInUp $duration (2.5s + $delay*1) forwards; }
-    .item02 { animation: bounceInUp $duration (2.5s + $delay*1.5) forwards; }
-    .item03 { animation: bounceInUp $duration (2.5s + $delay*2) forwards; }
-    .item04 { animation: bounceInUp $duration (2.5s + $delay*2.5) forwards; }
-    .item05 { animation: bounceInUp $duration (2.5s + $delay*3) forwards; }
+    .item01 { animation: bounceInUp $duration (1.5s + $delay*1) forwards; }
+    .item02 { animation: bounceInUp $duration (1.5s + $delay*1.5) forwards; }
+    .item03 { animation: bounceInUp $duration (1.5s + $delay*2) forwards; }
+    .item04 { animation: bounceInUp $duration (1.5s + $delay*2.5) forwards; }
+    .item05 { animation: bounceInUp $duration (1.5s + $delay*3) forwards; }
 
     .svg .bar {
       transition: stroke-dashoffset 1.2s ease-out;
