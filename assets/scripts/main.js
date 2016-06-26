@@ -316,71 +316,6 @@ var app = {
                     $('.hotdot').removeClass('transform');
                 }
 
-                //  地图 模拟加载
-                if (index == 5 || index == 6) {
-                    if (index == 5) {
-                        setTimeout(function () {
-                            // 百度地图API功能
-                            var map = new BMap.Map("map1");
-                            var point = new BMap.Point(121.468548,31.247761);
-                            map.centerAndZoom(point,16);
-                            //创建地址解析器实例
-                            var myGeo = new BMap.Geocoder();
-                            //将地址解析结果显示在地图上,并调整地图视野
-                            myGeo.getPoint( "上海市闸北区光复路581号", function(point) {
-                                if ( point ) {
-                                    map.centerAndZoom(point, 16);
-                                    map.addOverlay(new BMap.Marker(point));
-
-                                    var marker = new BMap.Marker(point);  // 创建标注
-                                    map.addOverlay(marker);              // 将标注添加到地图中
-                                    map.setMapStyle({style:'grayscale'});
-
-                                    var label = new BMap.Label(" ",{offset:new BMap.Size(-20,-20)});
-                                    marker.setLabel(label);
-                                    $('#map1').parents('.map').addClass('finished');
-                                }else{
-                                    alert("您选择地址没有解析到结果!");
-                                }
-                            }, "上海市闸北区光复路");
-                        }, 1000);
-                    } else {
-                        $('#map1').parents('.map').removeClass('finished');
-                    }
-
-                    if (index == 6) {
-                        setTimeout(function () {
-                            // 百度地图API功能
-                            var map = new BMap.Map("map2");
-                            var point = new BMap.Point(121.468548,31.247761);
-                            map.centerAndZoom(point,16);
-                            //创建地址解析器实例
-                            var myGeo = new BMap.Geocoder();
-                            //将地址解析结果显示在地图上,并调整地图视野
-                            myGeo.getPoint( "上海市闸北区光复路581号", function(point) {
-                                if ( point ) {
-                                    map.centerAndZoom(point, 16);
-                                    map.addOverlay(new BMap.Marker(point));
-
-                                    var marker = new BMap.Marker(point);  // 创建标注
-                                    map.addOverlay(marker);              // 将标注添加到地图中
-                                    map.setMapStyle({style:'grayscale'});
-
-                                    var label = new BMap.Label(" ",{offset:new BMap.Size(-20,-20)});
-                                    marker.setLabel(label);
-                                    $('#map2').parents('.map').addClass('finished');
-                                }else{
-                                    alert("您选择地址没有解析到结果!");
-                                }
-                            }, "上海市闸北区光复路");
-                        }, 1000);
-                    } else {
-                        $('#map2').parents('.map').removeClass('finished');
-                    }
-                } else {
-                    $('.map').removeClass('finished');
-                }
-
                 //  热点
                 $('.hotdot').hide();
 
@@ -557,7 +492,7 @@ var app = {
         var dom = '';
         for (var key in data) {
             if (data.hasOwnProperty(key)) {
-                dom += '<div class="item" data-value="' + key + '">' + data[key] + '</div>';
+                dom += '<div class="item" data-value="' + data[key].position + '">' + data[key].name + '</div>';
                 optionsAmount += 1;
             }
         }
@@ -569,6 +504,71 @@ var app = {
         } else {
             citySelect.removeClass('scroll')
         }
+    },
+
+    scene05: function () {
+        var data = DATA.cities;
+        var citySelect = $('.dealer-query-select .city');
+        var optionsAmount = 0;
+        var timer = null;
+
+        var dom = '';
+        for (var key in data) {
+            if (data.hasOwnProperty(key)) {
+                dom += '<div class="item" data-value="' + data[key].position + '">' + data[key].name + '</div>';
+                optionsAmount += 1;
+            }
+        }
+        citySelect.find('.select-bd .container').empty().append($(dom));
+
+        //  如果 option 大于6个 添加滚动提示
+        if (optionsAmount > 6) {
+            citySelect.addClass('scroll');
+        } else {
+            citySelect.removeClass('scroll')
+        }
+
+        //  切换城市
+        $('.dealer-query-select .city .item').on('click', function () {
+            setMap($(this).attr('data-value').split(','));
+            console.log($(this).attr('data-value').split(','));
+        });
+
+        //  初始化默认地图
+        //  查询坐标的网页: http://api.map.baidu.com/lbsapi/getpoint/index.html
+        setMap(DATA.cities[0].position.split(','));
+
+        function setMap(place) {
+            clearTimeout(timer);
+            $('#map1').empty();
+            $('#map1').parents('.map').removeClass('finished');
+
+            // 百度地图API功能
+            var map = new BMap.Map("map1");
+            var point = new BMap.Point(place[0],place[1]);
+
+            map.setMapStyle({style: 'grayscale'});
+            map.enableScrollWheelZoom(true);
+            map.centerAndZoom(point, 18);
+            map.addOverlay(new BMap.Marker(point));// 将标注添加到地图中
+            var label = new BMap.Label("", {offset: new BMap.Size(-20, -20)});
+
+            timer = setTimeout(function () {
+                $('#map1').parents('.map').addClass('finished');
+            }, 1000);
+        }
+    },
+
+    scene06: function () {
+        // 百度地图API功能
+        var map = new BMap.Map("map2");
+        var point = new BMap.Point(121.468548, 31.247761);
+        map.setMapStyle({style: 'grayscale'});
+        map.enableScrollWheelZoom(true);
+        map.centerAndZoom(point, 18);
+        map.addOverlay(new BMap.Marker(point));// 将标注添加到地图中
+        var label = new BMap.Label("", {offset: new BMap.Size(-20, -20)});
+        $('#map2').parents('.map').addClass('finished');
     },
 
     //  全局用 点击任意地方后 关闭组件
@@ -589,6 +589,8 @@ var app = {
         this.scene02();
         this.scene03();
         this.scene04();
+        this.scene05();
+        this.scene06();
         this.animationBg.preload(function () {
             //  图片素材加载完毕后 开始运行主界面
             $('.scene01').addClass('active');
